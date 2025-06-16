@@ -1,89 +1,490 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GrowCalth</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/11.9.1/firebase-app-compat.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/11.9.1/firebase-auth-compat.js"></script>
-    <script defer src="/__/firebase/11.9.1/firebase-database-compat.js"></script>
-    <script defer src="/__/firebase/11.9.1/firebase-firestore-compat.js"></script>
-    <script defer src="/__/firebase/11.9.1/firebase-functions-compat.js"></script>
-    <script defer src="/__/firebase/11.9.1/firebase-messaging-compat.js"></script>
-    <script defer src="/__/firebase/11.9.1/firebase-storage-compat.js"></script>
-    <script defer src="/__/firebase/11.9.1/firebase-analytics-compat.js"></script>
-    <script defer src="/__/firebase/11.9.1/firebase-remote-config-compat.js"></script>
-    <script defer src="/__/firebase/11.9.1/firebase-performance-compat.js"></script>
-    <!-- 
-      initialize the SDK after all desired features are loaded, set useEmulator to false
-      to avoid connecting the SDK to running emulators.
-    -->
-    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0a0a;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            overflow: hidden;
+            position: relative;
+        }
 
-    <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
-      }
+        .background-layers {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .bg-gradient {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 80%, #DB5461 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, #2a2a2a 0%, transparent 50%),
+                        radial-gradient(circle at 40% 40%, #1a1a1a 0%, transparent 50%);
+            animation: gradientPulse 8s ease-in-out infinite;
+        }
+
+        @keyframes gradientPulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.6; }
+        }
+
+        .floating-orbs {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(219, 84, 97, 0.1);
+            backdrop-filter: blur(20px);
+            animation: float 15s ease-in-out infinite;
+        }
+
+        .orb:nth-child(1) {
+            width: 300px;
+            height: 300px;
+            top: -150px;
+            left: -150px;
+            animation-delay: 0s;
+        }
+
+        .orb:nth-child(2) {
+            width: 200px;
+            height: 200px;
+            top: 50%;
+            right: -100px;
+            animation-delay: -5s;
+        }
+
+        .orb:nth-child(3) {
+            width: 150px;
+            height: 150px;
+            bottom: -75px;
+            left: 30%;
+            animation-delay: -10s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-30px) rotate(120deg); }
+            66% { transform: translateY(15px) rotate(240deg); }
+        }
+
+        .container {
+            text-align: center;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .logo-container {
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 30px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(40px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            animation: logoFloat 6s ease-in-out infinite;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        @keyframes logoFloat {
+            0%, 100% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-15px) scale(1.05); }
+        }
+
+        .logo-icon {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #DB5461, #ff6b7a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ffffff, #DB5461, #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            background-size: 200% 200%;
+            animation: titleGlow 4s ease-in-out infinite;
+            letter-spacing: -0.02em;
+        }
+
+        @keyframes titleGlow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            font-weight: 400;
+            margin-bottom: 0.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+        }
+
+        .description {
+            font-size: 1rem;
+            font-weight: 300;
+            margin-bottom: 3rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+        }
+
+        .download-section {
+            margin-bottom: 2rem;
+        }
+
+        .download-title {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .download-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            padding: 18px 35px;
+            background: rgba(255, 255, 255, 0.08);
+            border: none;
+            border-radius: 20px;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(40px);
+            min-width: 280px;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .download-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(219, 84, 97, 0.2), rgba(255, 255, 255, 0.1));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            border-radius: 20px;
+        }
+
+        .download-btn:hover::before {
+            opacity: 1;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(219, 84, 97, 0.3);
+            background: rgba(219, 84, 97, 0.15);
+        }
+
+        .download-btn:active {
+            transform: translateY(-1px) scale(1.01);
+        }
+
+        .platform-icon {
+            width: 28px;
+            height: 28px;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+        }
+
+        .btn-text {
+            position: relative;
+            z-index: 2;
+        }
+
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .feature {
+            text-align: center;
+            opacity: 0.7;
+        }
+
+        .feature-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(219, 84, 97, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 0.5rem;
+            backdrop-filter: blur(20px);
+        }
+
+        .feature-text {
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.5);
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1.5rem;
+                max-width: 90%;
+            }
+            
+            .title {
+                font-size: 2.8rem;
+            }
+            
+            .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .logo {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .logo-icon {
+                font-size: 2rem;
+            }
+            
+            .download-btn {
+                min-width: 250px;
+                padding: 16px 30px;
+                font-size: 1rem;
+            }
+            
+            .features {
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .title {
+                font-size: 2.2rem;
+            }
+            
+            .download-btn {
+                min-width: 220px;
+                padding: 14px 25px;
+            }
+            
+            .features {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+        }
     </style>
-  </head>
-  <body>
-    <div id="message">
-      <h2>Welcome</h2>
-      <h1>Firebase Hosting Setup Complete</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
+</head>
+<body>
+    <div class="background-layers">
+        <div class="bg-gradient"></div>
+        <div class="floating-orbs">
+            <div class="orb"></div>
+            <div class="orb"></div>
+            <div class="orb"></div>
+        </div>
     </div>
-    <p id="load">Firebase SDK Loading&hellip;</p>
+    
+    <div class="container">
+        <div class="logo-container">
+            <div class="logo">
+                <div class="logo-icon">G</div>
+            </div>
+        </div>
+        
+        <h1 class="title">GrowCalth</h1>
+        <p class="subtitle">Join The House Today.</p>
+        <p class="description">Turn your steps into house points! Join your fellow SST students in the ultimate walking challenge and help your house climb to victory.</p>
+        
+        <div class="download-section">
+            <div class="download-title">Get the app and start walking</div>
+            
+            <div class="download-buttons">
+                <a href="#" class="download-btn" id="iosBtn">
+                    <svg class="platform-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                    </svg>
+                    <span class="btn-text">Download for iPhone</span>
+                </a>
+                
+                <a href="#" class="download-btn" id="androidBtn">
+                    <svg class="platform-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M17.523 15.3414c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4486.9993.9993s-.4482.9997-.9993.9997m-11.046 0c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4486.9993.9993s-.4482.9997-.9993.9997m11.4045-6.02l1.9973-3.4592a.416.416 0 00-.1518-.5972.416.416 0 00-.5972.1518l-2.0223 3.5024c-.5536-.2483-1.1808-.3893-1.8523-.3893s-1.2987.1409-1.8523.3893L10.4219 5.4418a.4161.4161 0 00-.5972-.1518.4161.4161 0 00-.1518.5972l1.9973 3.4592c-2.403 1.1953-4.0612 3.6861-4.0612 6.5535h14.4c0-2.8674-1.6582-5.3582-4.0612-6.5535z"/>
+                    </svg>
+                    <span class="btn-text">Download for Android</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.68 2.66.68 4.14.01 2.65-2.15 4.7-4.89 4.7z"/>
+                    </svg>
+                </div>
+                <div class="feature-text">Track Steps</div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                    </svg>
+                </div>
+                <div class="feature-text">Earn Points</div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/>
+                    </svg>
+                </div>
+                <div class="feature-text">House Leaderboard</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <p>GrowCalth © 2025 • Made for SST Students</p>
+    </div>
 
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const loadEl = document.querySelector('#load');
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        // // The Firebase SDK is initialized and available here!
-        //
-        // firebase.auth().onAuthStateChanged(user => { });
-        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.firestore().doc('/foo/bar').get().then(() => { });
-        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
-        // firebase.messaging().requestPermission().then(() => { });
-        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        // firebase.analytics(); // call to activate
-        // firebase.analytics().logEvent('tutorial_completed');
-        // firebase.performance(); // call to activate
-        //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-
-        try {
-          let app = firebase.app();
-          let features = [
-            'auth', 
-            'database', 
-            'firestore',
-            'functions',
-            'messaging', 
-            'storage', 
-            'analytics', 
-            'remoteConfig',
-            'performance',
-          ].filter(feature => typeof app[feature] === 'function');
-          loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
-        } catch (e) {
-          console.error(e);
-          loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
+        // Platform detection and redirect logic
+        function detectPlatform() {
+            const userAgent = navigator.userAgent.toLowerCase();
+            const isIOS = /iphone|ipad|ipod/.test(userAgent);
+            const isAndroid = /android/.test(userAgent);
+            
+            return { isIOS, isAndroid };
         }
-      });
+
+        function initializeApp() {
+            const { isIOS, isAndroid } = detectPlatform();
+            const iosBtn = document.getElementById('iosBtn');
+            const androidBtn = document.getElementById('androidBtn');
+
+            // Set up download links (replace with your actual URLs)
+            iosBtn.href = 'https://apps.apple.com/app/growcalth/id123456789';
+            androidBtn.href = 'https://play.google.com/store/apps/details?id=com.growcalth.app';
+
+            // Auto-redirect based on platform after 3 seconds
+            if (isIOS) {
+                setTimeout(() => {
+                    window.location.href = iosBtn.href;
+                }, 3000);
+            } else if (isAndroid) {
+                setTimeout(() => {
+                    window.location.href = androidBtn.href;
+                }, 3000);
+            }
+
+            // Add click tracking
+            [iosBtn, androidBtn].forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    console.log('Download button clicked:', this.textContent);
+                });
+            });
+        }
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', initializeApp);
+
+        // Add subtle parallax effect on mouse move
+        document.addEventListener('mousemove', (e) => {
+            const orbs = document.querySelectorAll('.orb');
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            
+            orbs.forEach((orb, index) => {
+                const speed = (index + 1) * 0.5;
+                const xPos = (x - 0.5) * speed;
+                const yPos = (y - 0.5) * speed;
+                orb.style.transform = `translate(${xPos}px, ${yPos}px)`;
+            });
+        });
     </script>
-  </body>
+</body>
 </html>
