@@ -5,7 +5,7 @@ html {
 
 /* Add scroll offset for tab bar */
 .section {
-    scroll-margin-top: 80px; /* Adjust based on your tab bar height */
+    scroll-margin-top: 100px; /* Adjust based on your tab bar height */
 }
 
 /* Privacy page specific styles */
