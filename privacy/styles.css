@@ -8,6 +8,7 @@ body {
     max-width: 900px;
     margin: 0 auto;
     padding: 2rem;
+    padding-top: 100px;
     position: relative;
     z-index: 10;
 }
@@ -15,7 +16,7 @@ body {
 .header {
     text-align: center;
     margin-bottom: 4rem;
-    padding: 4rem 0 2rem;
+    padding: 2rem 0 2rem;
 }
 
 .logo-container {
@@ -68,12 +69,6 @@ body {
     animation: titleGlow 4s ease-in-out infinite;
     letter-spacing: -0.02em;
     line-height: 1.1;
-}
-
-.page-subtitle {
-    font-size: 1.2rem;
-    color: rgba(255, 255, 255, 0.7);
-    font-weight: 400;
 }
 
 .content {
@@ -278,11 +273,12 @@ body {
 @media (max-width: 768px) {
     .container {
         padding: 1rem 2rem;
+        padding-top: 110px;
         margin: 0 1rem;
     }
 
     .header {
-        padding: 3rem 0 1rem;
+        padding: 1rem 0 1rem;
         margin-bottom: 2rem;
     }
 
@@ -327,6 +323,7 @@ body {
 @media (max-width: 480px) {
     .container {
         padding: 0.5rem 1.5rem;
+        padding-top: 100px;
         margin: 0 0.5rem;
     }
 
@@ -370,10 +367,6 @@ body {
         font-size: 0.8rem;
     }
 
-    .page-subtitle {
-        font-size: 1.1rem;
-    }
-
     .section-content {
         font-size: 0.95rem;
         line-height: 1.6;
@@ -383,6 +376,7 @@ body {
 @media (max-width: 320px) {
     .container {
         padding: 0.25rem 1rem;
+        padding-top: 90px;
         margin: 0 0.25rem;
     }
 
