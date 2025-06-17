@@ -1,3 +1,13 @@
+/* Add smooth scrolling behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Add scroll offset for tab bar */
+.section {
+    scroll-margin-top: 80px; /* Adjust based on your tab bar height */
+}
+
 /* Privacy page specific styles */
 
 body {
@@ -332,12 +342,26 @@ body::-webkit-scrollbar {
         font-size: clamp(2rem, 5vw, 2.5rem);
     }
 
+    /* Make TOC items display as single rows on mobile */
     .toc-list {
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: stretch;
     }
 
     .toc-item {
-        margin-bottom: 0.5rem;
+        width: 100%;
+        margin-bottom: 0;
+        text-align: center;
+    }
+
+    .toc-link {
+        display: block;
+        width: 100%;
+        padding: 0.75rem 1rem;
+        white-space: normal;
+        text-align: center;
     }
 
     .highlight-box {
@@ -378,8 +402,18 @@ body::-webkit-scrollbar {
         padding: 1.5rem;
     }
 
+    /* Ensure TOC items remain as single rows */
+    .toc-list {
+        gap: 0.4rem;
+    }
+
     .toc-item {
-        margin-bottom: 0.4rem;
+        width: 100%;
+    }
+
+    .toc-link {
+        padding: 0.6rem 0.8rem;
+        font-size: 0.85rem;
     }
 
     .highlight-box {
@@ -412,8 +446,18 @@ body::-webkit-scrollbar {
         padding: 1rem;
     }
 
+    /* Ensure TOC items remain as single rows */
+    .toc-list {
+        gap: 0.3rem;
+    }
+
     .toc-item {
-        margin-bottom: 0.3rem;
+        width: 100%;
+    }
+
+    .toc-link {
+        padding: 0.5rem 0.6rem;
+        font-size: 0.8rem;
     }
 
     .highlight-box {
