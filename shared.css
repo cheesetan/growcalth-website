@@ -11,11 +11,21 @@ body {
     background: #0a0a0a;
     min-height: 100vh;
     color: white;
-    overflow-x: hidden;
+    overflow: hidden;
     position: relative;
     /* Remove scroll bar */
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+/* Ensure content can still scroll if needed */
+.page-container,
+.leaderboard-container,
+.container {
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 100vh;
+    padding-top: 80px;
 }
 
 /* Remove scroll bar for webkit browsers */
@@ -23,13 +33,20 @@ body::-webkit-scrollbar {
     display: none;
 }
 
-/* Background layers - fixed and unaffected by browser elements */
+/* Remove scrollbar for content containers */
+.page-container::-webkit-scrollbar,
+.leaderboard-container::-webkit-scrollbar,
+.container::-webkit-scrollbar {
+    display: none;
+}
+
+/* Background layers - fixed and extending beyond browser bounds */
 .background-layers {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
+    top: -50px;
+    left: -50px;
+    width: calc(100vw + 100px);
+    height: calc(100vh + 100px);
     z-index: -1;
     pointer-events: none;
 }
@@ -68,8 +85,8 @@ body::-webkit-scrollbar {
 .orb:nth-child(1) {
     width: 300px;
     height: 300px;
-    top: -150px;
-    left: -150px;
+    top: -200px;
+    left: -200px;
     animation-delay: 0s;
 }
 
@@ -77,15 +94,15 @@ body::-webkit-scrollbar {
     width: 200px;
     height: 200px;
     top: 50%;
-    right: -100px;
+    right: -150px;
     animation-delay: -5s;
 }
 
 .orb:nth-child(3) {
     width: 150px;
     height: 150px;
-    bottom: -75px;
-    left: 30%;
+    bottom: -100px;
+    left: 20%;
     animation-delay: -10s;
 }
 
