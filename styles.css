@@ -67,7 +67,6 @@ body::-webkit-scrollbar {
     width: calc(100vw + 200px + env(safe-area-inset-left) + env(safe-area-inset-right));
     height: calc(100vh + 200px + env(safe-area-inset-top) + env(safe-area-inset-bottom));
     z-index: -1;
-    pointer-events: none;
     /* Ensure background stays fixed during scroll */
     will-change: transform;
     /* Add dark background to cover safe areas */
@@ -78,19 +77,16 @@ body::-webkit-scrollbar {
     radial-gradient(circle at 90% 90%, #DB5461 0%, transparent 40%),
     radial-gradient(circle at 10% 10%, #2a2a2a 0%, transparent 40%),
     #0a0a0a;
-    /* Remove animation to improve performance */
-    /* animation: gradientPulse 8s ease-in-out infinite; */
+    animation: gradientPulse 8s ease-in-out infinite;
 }
 
 /* Add a fallback background layer */
 .bg-gradient {
-    position: fixed;
-    top: calc(-100px - env(safe-area-inset-top));
-    left: calc(-100px - env(safe-area-inset-left));
-    width: calc(100vw + 200px + env(safe-area-inset-left) + env(safe-area-inset-right));
-    height: calc(100vh + 200px + env(safe-area-inset-top) + env(safe-area-inset-bottom));
-    z-index: -2;
-    pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background: 
                 radial-gradient(circle at 20% 80%, #DB5461 0%, transparent 50%),
                 radial-gradient(circle at 80% 20%, #2a2a2a 0%, transparent 50%),
@@ -98,15 +94,13 @@ body::-webkit-scrollbar {
                 radial-gradient(circle at 90% 90%, #DB5461 0%, transparent 40%),
                 radial-gradient(circle at 10% 10%, #2a2a2a 0%, transparent 40%),
                 #0a0a0a;
-    /* Remove animation to improve performance */
-    /* animation: gradientPulse 8s ease-in-out infinite; */
+    animation: gradientPulse 8s ease-in-out infinite;
 }
 
-/* Remove the gradient pulse animation to improve performance */
-/* @keyframes gradientPulse {
+@keyframes gradientPulse {
     0%, 100% { opacity: 0.3; }
     50% { opacity: 0.6; }
-} */
+}
 
 /* Additional background elements that extend beyond viewport */
 .background-layers::before {
@@ -122,26 +116,17 @@ body::-webkit-scrollbar {
 }
 
 .floating-orbs {
-    position: fixed;
-    top: calc(-100px - env(safe-area-inset-top));
-    left: calc(-100px - env(safe-area-inset-left));
-    width: calc(100vw + 200px + env(safe-area-inset-left) + env(safe-area-inset-right));
-    height: calc(100vh + 200px + env(safe-area-inset-top) + env(safe-area-inset-bottom));
-    z-index: -1;
-    pointer-events: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
 }
 
 .orb {
     position: absolute;
     border-radius: 50%;
     background: rgba(219, 84, 97, 0.1);
-    /* Remove expensive backdrop-filter for better performance */
-    /* backdrop-filter: blur(20px); */
-    /* Add hardware acceleration */
-    transform: translateZ(0);
-    will-change: transform;
-    /* Simplify animation to reduce performance impact */
-    animation: float 20s ease-in-out infinite;
+    backdrop-filter: blur(20px);
+    animation: float 15s ease-in-out infinite;
 }
 
 .orb:nth-child(1) {
@@ -157,7 +142,7 @@ body::-webkit-scrollbar {
     height: 200px;
     top: 50%;
     right: -200px;
-    animation-delay: -7s;
+    animation-delay: -5s;
 }
 
 .orb:nth-child(3) {
@@ -165,13 +150,13 @@ body::-webkit-scrollbar {
     height: 150px;
     bottom: -150px;
     left: 10%;
-    animation-delay: -14s;
+    animation-delay: -10s;
 }
 
-/* Simplify the float animation to reduce performance impact */
 @keyframes float {
-    0%, 100% { transform: translateZ(0) translateY(0px); }
-    50% { transform: translateZ(0) translateY(-20px); }
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    33% { transform: translateY(-30px) rotate(120deg); }
+    66% { transform: translateY(15px) rotate(240deg); }
 }
 
 /* iPad-style Floating Tab Bar */
@@ -680,46 +665,4 @@ html::-webkit-scrollbar {
         padding: 0.5rem 0.75rem 1rem;
         font-size: clamp(0.65rem, 1.8vw, 0.75rem);
     }
-}
-
-/* Add explicit safe area background colors */
-html {
-    background: #0a0a0a;
-}
-
-html::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: 
-    radial-gradient(circle at 20% 80%, #DB5461 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, #2a2a2a 0%, transparent 50%),
-    radial-gradient(circle at 40% 40%, #1a1a1a 0%, transparent 50%),
-    radial-gradient(circle at 90% 90%, #DB5461 0%, transparent 40%),
-    radial-gradient(circle at 10% 10%, #2a2a2a 0%, transparent 40%),
-    #0a0a0a;
-    z-index: -3;
-    pointer-events: none;
-}
-
-/* Ensure body background extends into safe areas */
-body::after {
-    content: '';
-    position: fixed;
-    top: calc(-100px - env(safe-area-inset-top));
-    left: calc(-100px - env(safe-area-inset-left));
-    width: calc(100vw + 200px + env(safe-area-inset-left) + env(safe-area-inset-right));
-    height: calc(100vh + 200px + env(safe-area-inset-top) + env(safe-area-inset-bottom));
-    background: 
-    radial-gradient(circle at 20% 80%, #DB5461 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, #2a2a2a 0%, transparent 50%),
-    radial-gradient(circle at 40% 40%, #1a1a1a 0%, transparent 50%),
-    radial-gradient(circle at 90% 90%, #DB5461 0%, transparent 40%),
-    radial-gradient(circle at 10% 10%, #2a2a2a 0%, transparent 40%),
-    #0a0a0a;
-    z-index: -4;
-    pointer-events: none;
 }
