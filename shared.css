@@ -260,6 +260,20 @@ body::before {
     50% { background-position: 100% 50%; }
 }
 
+/* Add extra padding to ensure content extends beyond viewport */
+.page-container::after,
+.leaderboard-container::after,
+.container::after {
+    content: '';
+    display: block;
+    width: 100%;
+}
+
+/* Home page doesn't need extra padding since it's non-scrollable */
+#home-page::after {
+    display: none;
+}
+
 /* Mobile optimizations */
 @media (max-width: 768px) {
     .floating-tab-bar {
@@ -287,6 +301,13 @@ body::before {
     .container {
         padding-top: 5rem;
     }
+
+    /* Add extra padding to ensure content extends beyond viewport on mobile */
+    .page-container::after,
+    .leaderboard-container::after,
+    .container::after {
+        height: 50px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -313,6 +334,13 @@ body::before {
     .leaderboard-container,
     .container {
         padding-top: 4.5rem;
+    }
+
+    /* Add extra padding to ensure content extends beyond viewport on mobile */
+    .page-container::after,
+    .leaderboard-container::after,
+    .container::after {
+        height: 50px;
     }
 }
 
@@ -342,19 +370,11 @@ body::before {
     .container {
         padding-top: 4rem;
     }
-}
 
-/* Add extra padding to ensure content extends beyond viewport */
-.page-container::after,
-.leaderboard-container::after,
-.container::after {
-    content: '';
-    display: block;
-    height: 50px;
-    width: 100%;
-}
-
-/* Home page doesn't need extra padding since it's non-scrollable */
-#home-page::after {
-    display: none;
+    /* Add extra padding to ensure content extends beyond viewport on mobile */
+    .page-container::after,
+    .leaderboard-container::after,
+    .container::after {
+        height: 50px;
+    }
 } 

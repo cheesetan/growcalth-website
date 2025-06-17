@@ -30,16 +30,6 @@ body {
     background: transparent;
 }
 
-/* Add extra padding to ensure content extends beyond viewport */
-.page-container::after,
-.leaderboard-container::after,
-.container::after {
-    content: '';
-    display: block;
-    height: 100px;
-    width: 100%;
-}
-
 /* Home page doesn't need extra padding since it's non-scrollable */
 #home-page::after {
     display: none;
