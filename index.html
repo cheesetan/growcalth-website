@@ -85,8 +85,6 @@
         </div>
     </div>
 
-
-
     <script>
         // Tab and routing functionality
         function handleNavigation(tabName) {
@@ -196,17 +194,6 @@
                     updateButtonVisibility('both');
                 }
             }, 500);
-
-            // Auto-redirect based on platform after 3 seconds (only on mobile)
-            if (isIOS) {
-                setTimeout(() => {
-                    window.location.href = iosBtn.href;
-                }, 3000);
-            } else if (isAndroid) {
-                setTimeout(() => {
-                    window.location.href = androidBtn.href;
-                }, 3000);
-            }
 
             // Add click tracking
             [iosBtn, androidBtn].forEach(btn => {
