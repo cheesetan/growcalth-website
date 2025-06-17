@@ -849,6 +849,7 @@
             }
         }
     </style>
+    
 </head>
 <body>
     <div class="background-layers">
@@ -905,7 +906,7 @@
                     <a href="#" class="download-btn" id="androidBtn">
                         <div class="loading-spinner" id="androidSpinner" style="display: none;"></div>
                         <svg class="platform-icon" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M17.523 15.3414c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4486.9993.9993s-.4482.9997-.9993.9997m-11.046 0c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4486.9993.9993s-.4482.9997-.9993.9997m11.4045-6.02l1.9973-3.4592a.416.416 0 00-.1518-.5972.416.416 0 00-.5972.1518l-2.0223 3.5024c-.5536-.2483-1.1808-.3893-1.8523-.3893s-1.2987.1409-1.8523.3893L10.4219 5.4418a.4161.4161 0 00-.5972-.1518.4161.4161 0 00-.1518.5972l1.9973 3.4592c-2.403 1.1953-4.0612 3.6861-4.0612 6.5535h14.4c0-2.8674-1.6582-5.3582-4.0612-6.5535z"/>
+                            <path d="M17.523 15.3414c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4486.9993.9993s-.4482-.9997-.9993.9997m-11.046 0c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4486.9993.9993s-.4482-.9997-.9993.9997m11.4045-6.02l1.9973-3.4592a.416.416 0 00-.1518-.5972.416.416 0 00-.5972.1518l-2.0223 3.5024c-.5536-.2483-1.1808-.3893-1.8523-.3893s-1.2987.1409-1.8523.3893L10.4219 5.4418a.4161.4161 0 00-.5972-.1518.4161.4161 0 00-.1518.5972l1.9973 3.4592c-2.403 1.1953-4.0612 3.6861-4.0612 6.5535h14.4c0-2.8674-1.6582-5.3582-4.0612-6.5535z"/>
                         </svg>
                         <span class="btn-text">Download for Android</span>
                     </a>
@@ -918,7 +919,68 @@
         </div>
     </div>
 
+    <!-- Privacy Page -->
+    <div class="page-container" id="privacy-page">
+        <div class="home-container">
+            <div class="main-content">
+                <h1 class="title">Privacy Policy</h1>
+                <p class="description">Your privacy is important to us. This privacy policy explains how GrowCalth collects, uses, and protects your information.</p>
+            </div>
+        </div>
+    </div>
+
     <script>
+        // Tab and routing functionality
+        function switchTab(tabName) {
+            // Update tab buttons
+            document.querySelectorAll('.tab-button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelector(`[data-page="${tabName}"]`).classList.add('active');
+            
+            // Update page containers
+            document.querySelectorAll('.page-container').forEach(page => {
+                page.classList.remove('active');
+            });
+            document.getElementById(`${tabName}-page`).classList.add('active');
+            
+            // Update URL
+            const newPath = tabName === 'home' ? '/' : `/${tabName}`;
+            history.pushState({ page: tabName }, '', newPath);
+        }
+
+        // Handle tab button clicks
+        document.querySelectorAll('.tab-button').forEach(button => {
+            button.addEventListener('click', () => {
+                const page = button.getAttribute('data-page');
+                switchTab(page);
+            });
+        });
+
+        // Handle browser back/forward buttons
+        window.addEventListener('popstate', (event) => {
+            const path = window.location.pathname;
+            let page = 'home';
+            
+            if (path === '/privacy') {
+                page = 'privacy';
+            }
+            
+            switchTab(page);
+        });
+
+        // Initialize based on current URL
+        function initializeFromURL() {
+            const path = window.location.pathname;
+            let page = 'home';
+            
+            if (path === '/privacy') {
+                page = 'privacy';
+            }
+            
+            switchTab(page);
+        }
+
         // Platform detection and redirect logic
         function detectPlatform() {
             const userAgent = navigator.userAgent.toLowerCase();
@@ -1013,7 +1075,10 @@
         }
 
         // Initialize when page loads
-        document.addEventListener('DOMContentLoaded', initializeApp);
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeFromURL();
+            initializeApp();
+        });
 
         // Add subtle parallax effect on mouse move (desktop only)
         if (window.innerWidth > 768) {
