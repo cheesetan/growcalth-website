@@ -350,6 +350,11 @@ body::before {
 .container::after {
     content: '';
     display: block;
-    height: 100px;
+    height: 50px;
     width: 100%;
+}
+
+/* Home page doesn't need extra padding since it's non-scrollable */
+#home-page::after {
+    display: none;
 } 

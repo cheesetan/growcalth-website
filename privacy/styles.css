@@ -28,7 +28,7 @@ body::-webkit-scrollbar {
     padding: 2rem 20px;
     position: relative;
     z-index: 10;
-    padding-top: 6rem;
+    padding-top: 4rem;
     animation: fadeIn 0.5s ease-in-out;
 }
 
@@ -40,7 +40,7 @@ body::-webkit-scrollbar {
 .header {
     text-align: center;
     margin-bottom: 4rem;
-    padding: 2rem 0 2rem;
+    padding: 1rem 0 2rem;
 }
 
 .logo-container {
@@ -451,5 +451,16 @@ body::-webkit-scrollbar {
 
     .section-content {
         font-size: 0.9rem;
+        line-height: 1.6;
     }
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 2rem 0;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.9rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: auto;
 } 

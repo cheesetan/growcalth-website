@@ -40,6 +40,11 @@ body {
     width: 100%;
 }
 
+/* Home page doesn't need extra padding since it's non-scrollable */
+#home-page::after {
+    display: none;
+}
+
 /* Remove scroll bar for webkit browsers */
 body::-webkit-scrollbar {
     display: none;
@@ -262,6 +267,12 @@ body::before {
     display: block;
 }
 
+/* Home page specific - non-scrollable */
+#home-page {
+    height: 100vh;
+    overflow: hidden;
+}
+
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
@@ -279,8 +290,9 @@ body::before {
     padding: 1rem;
     position: relative;
     z-index: 10;
-    min-height: calc(100vh - 80px);
-    padding-top: 6rem;
+    height: calc(100vh - 6rem); /* Account for tab bar padding */
+    padding-top: 2rem;
+    overflow: hidden;
 }
 
 .main-content {
@@ -290,11 +302,13 @@ body::before {
     align-items: center;
     justify-content: center;
     width: 100%;
-    padding: 2rem 0;
+    padding: 1rem 0;
+    max-height: 100%;
+    overflow: hidden;
 }
 
 .logo-container {
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     position: relative;
 }
 
@@ -345,7 +359,7 @@ body::before {
 .title {
     font-size: clamp(2.5rem, 8vw, 3.5rem);
     font-weight: 800;
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
     background: linear-gradient(135deg, #ffffff, #DB5461, #ffffff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -372,7 +386,7 @@ body::before {
 .description {
     font-size: clamp(0.9rem, 3.5vw, 1rem);
     font-weight: 300;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     color: rgba(255, 255, 255, 0.7);
     line-height: 1.6;
     max-width: 400px;
@@ -380,7 +394,7 @@ body::before {
 }
 
 .download-section {
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     width: 100%;
 }
 
@@ -468,7 +482,7 @@ body::before {
 
 .footer {
     margin-top: auto;
-    padding: 2rem 1rem 1rem;
+    padding: 1rem 1rem 0.5rem;
     font-size: clamp(0.8rem, 2.5vw, 0.9rem);
     color: rgba(255, 255, 255, 0.5);
     text-align: center;
@@ -514,11 +528,11 @@ body::before {
 
     .home-container {
         padding: 0.5rem;
-        min-height: calc(100vh - 90px);
+        height: calc(100vh - 5rem); /* Adjusted for mobile tab bar position */
     }
 
     .main-content {
-        padding: 1rem 0;
+        padding: 0.5rem 0;
     }
 
     .logo {
@@ -568,7 +582,7 @@ body::before {
 
     .home-container {
         padding: 0.25rem;
-        min-height: calc(100vh - 80px);
+        height: calc(100vh - 4.5rem); /* Adjusted for mobile tab bar position */
     }
 
     .download-btn {
@@ -599,7 +613,7 @@ body::before {
     }
 
     .home-container {
-        min-height: calc(100vh - 70px);
+        height: calc(100vh - 4rem); /* Adjusted for mobile tab bar position */
     }
 
     .download-btn {
