@@ -6,14 +6,7 @@
 
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    /* Remove the solid background color that's overriding the gradient */
-    background: 
-    radial-gradient(circle at 20% 80%, #DB5461 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, #2a2a2a 0%, transparent 50%),
-    radial-gradient(circle at 40% 40%, #1a1a1a 0%, transparent 50%),
-    radial-gradient(circle at 90% 90%, #DB5461 0%, transparent 40%),
-    radial-gradient(circle at 10% 10%, #2a2a2a 0%, transparent 40%),
-    #0a0a0a;
+    background: #0a0a0a;
     min-height: 100vh;
     color: white;
     overflow-x: hidden;
@@ -23,11 +16,6 @@ body {
     /* Remove scroll bar */
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none; /* Internet Explorer 10+ */
-    /* Safe area padding */
-    padding-top: env(safe-area-inset-top);
-    padding-bottom: env(safe-area-inset-bottom);
-    padding-left: env(safe-area-inset-left);
-    padding-right: env(safe-area-inset-right);
 }
 
 /* Ensure content can still scroll if needed */
@@ -59,41 +47,41 @@ body::-webkit-scrollbar {
     display: none;
 }
 
-/* Background layers - fixed and extending beyond browser bounds */
 .background-layers {
     position: fixed;
-    top: calc(-100px - env(safe-area-inset-top));
-    left: calc(-100px - env(safe-area-inset-left));
-    width: calc(100vw + 200px + env(safe-area-inset-left) + env(safe-area-inset-right));
-    height: calc(100vh + 200px + env(safe-area-inset-top) + env(safe-area-inset-bottom));
+    top: -100px;
+    left: -100px;
+    width: calc(100vw + 200px);
+    height: calc(100vh + 200px);
     z-index: -1;
     /* Ensure background stays fixed during scroll */
     will-change: transform;
-    /* Add dark background to cover safe areas */
-    background: 
-    radial-gradient(circle at 20% 80%, #DB5461 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, #2a2a2a 0%, transparent 50%),
-    radial-gradient(circle at 40% 40%, #1a1a1a 0%, transparent 50%),
-    radial-gradient(circle at 90% 90%, #DB5461 0%, transparent 40%),
-    radial-gradient(circle at 10% 10%, #2a2a2a 0%, transparent 40%),
-    #0a0a0a;
-    animation: gradientPulse 8s ease-in-out infinite;
 }
 
-/* Add a fallback background layer */
+/* Ensure the body background also extends beyond bounds */
+body::before {
+    content: '';
+    position: fixed;
+    top: -50px;
+    left: -50px;
+    width: calc(100vw + 100px);
+    height: calc(100vh + 100px);
+    background: #0a0a0a;
+    z-index: -2;
+    pointer-events: none;
+}
+
 .bg-gradient {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: 
-                radial-gradient(circle at 20% 80%, #DB5461 0%, transparent 50%),
+    background: radial-gradient(circle at 20% 80%, #DB5461 0%, transparent 50%),
                 radial-gradient(circle at 80% 20%, #2a2a2a 0%, transparent 50%),
                 radial-gradient(circle at 40% 40%, #1a1a1a 0%, transparent 50%),
                 radial-gradient(circle at 90% 90%, #DB5461 0%, transparent 40%),
-                radial-gradient(circle at 10% 10%, #2a2a2a 0%, transparent 40%),
-                #0a0a0a;
+                radial-gradient(circle at 10% 10%, #2a2a2a 0%, transparent 40%);
     animation: gradientPulse 8s ease-in-out infinite;
 }
 
@@ -106,10 +94,10 @@ body::-webkit-scrollbar {
 .background-layers::before {
     content: '';
     position: absolute;
-    top: calc(-50px - env(safe-area-inset-top));
-    left: calc(-50px - env(safe-area-inset-left));
-    width: calc(100% + 100px + env(safe-area-inset-left) + env(safe-area-inset-right));
-    height: calc(100% + 100px + env(safe-area-inset-top) + env(safe-area-inset-bottom));
+    top: -50px;
+    left: -50px;
+    width: calc(100% + 100px);
+    height: calc(100% + 100px);
     background: radial-gradient(circle at 0% 0%, rgba(219, 84, 97, 0.1) 0%, transparent 30%),
                 radial-gradient(circle at 100% 100%, rgba(42, 42, 42, 0.1) 0%, transparent 30%);
     pointer-events: none;
@@ -263,9 +251,6 @@ body::-webkit-scrollbar {
 .page-container {
     display: none;
     animation: fadeIn 0.5s ease-in-out;
-    position: relative;
-    z-index: 1;
-    background: rgba(0, 0, 0, 0.6);
 }
 
 .page-container.active {
@@ -288,8 +273,6 @@ body::-webkit-scrollbar {
 
 /* Ensure html element also has no scrollbar for home page */
 html {
-    background: #0a0a0a;
-    scroll-behavior: smooth;
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none; /* Internet Explorer 10+ */
 }
@@ -314,7 +297,7 @@ html::-webkit-scrollbar {
     margin: 0 auto;
     padding: 1rem;
     position: relative;
-    z-index: 1;
+    z-index: 10;
     height: calc(100vh - 6rem); /* Account for tab bar padding */
     padding-top: 2rem;
     overflow: hidden;
