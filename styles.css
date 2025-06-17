@@ -271,6 +271,24 @@ body::before {
 #home-page {
     height: 100vh;
     overflow: hidden;
+    /* Ensure no scrollbar appears */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+/* Hide scrollbar for home page specifically */
+#home-page::-webkit-scrollbar {
+    display: none;
+}
+
+/* Ensure html element also has no scrollbar for home page */
+html {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+html::-webkit-scrollbar {
+    display: none;
 }
 
 @keyframes fadeIn {

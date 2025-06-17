@@ -312,18 +312,16 @@ body::-webkit-scrollbar {
 /* Mobile optimizations with increased horizontal margins */
 @media (max-width: 768px) {
     .container {
-        padding: 1rem 15px;
+        padding: 2rem 20px;
+        padding-top: 5rem;
     }
 
     .header {
-        padding: 1rem 0 1rem;
-        margin-bottom: 2rem;
+        margin-bottom: 3rem;
     }
 
     .content {
-        padding: 2rem 1.5rem;
-        border-radius: 20px;
-        margin: 0 0.5rem 2rem 0.5rem;
+        padding: 2rem;
     }
 
     .section-title {
@@ -331,42 +329,35 @@ body::-webkit-scrollbar {
     }
 
     .page-title {
-        font-size: 2rem;
+        font-size: clamp(2rem, 5vw, 2.5rem);
     }
 
     .toc-list {
-        flex-direction: column;
-        align-items: center;
+        grid-template-columns: 1fr;
     }
 
     .toc-item {
-        width: 100%;
-        max-width: 300px;
-        text-align: center;
+        margin-bottom: 0.5rem;
     }
 
     .highlight-box {
-        padding: 1.25rem;
-        margin: 1.25rem 0;
+        padding: 1.5rem;
     }
 
     .highlight-box::before {
-        top: -10px;
-        left: 15px;
-        padding: 0.2rem 0.6rem;
-        font-size: 0.9rem;
+        width: 3px;
+        height: 60%;
     }
 }
 
 @media (max-width: 480px) {
     .container {
-        padding: 0.5rem 15px;
+        padding: 1.5rem 15px;
+        padding-top: 4.5rem;
     }
 
     .content {
-        padding: 1.5rem 1rem;
-        margin: 0 0.25rem 2rem 0.25rem;
-        border-radius: 18px;
+        padding: 1.5rem;
     }
 
     .section-title {
@@ -378,67 +369,56 @@ body::-webkit-scrollbar {
     }
 
     .contact-section {
-        padding: 1.5rem 1rem;
-        margin: 0 0.25rem;
+        padding: 1.5rem;
     }
 
     .toc {
-        padding: 1.25rem 1rem;
+        padding: 1.5rem;
     }
 
     .toc-item {
-        padding: 0.4rem 0.8rem;
-        font-size: 0.85rem;
+        margin-bottom: 0.4rem;
     }
 
     .highlight-box {
-        padding: 1rem;
-        margin: 1rem 0;
+        padding: 1.25rem;
     }
 
     .highlight-box::before {
-        top: -8px;
-        left: 12px;
-        padding: 0.15rem 0.5rem;
-        font-size: 0.8rem;
+        width: 2px;
+        height: 50%;
     }
 
     .section-content {
         font-size: 0.95rem;
-        line-height: 1.6;
     }
 }
 
 @media (max-width: 320px) {
     .container {
-        padding: 0.25rem 15px;
+        padding: 1rem 10px;
+        padding-top: 4rem;
     }
 
     .content {
-        padding: 1rem 0.75rem;
-        margin: 0 0.125rem 2rem 0.125rem;
-        border-radius: 15px;
+        padding: 1rem;
     }
 
     .toc {
-        padding: 1rem 0.75rem;
+        padding: 1rem;
     }
 
     .toc-item {
-        padding: 0.3rem 0.6rem;
-        font-size: 0.8rem;
+        margin-bottom: 0.3rem;
     }
 
     .highlight-box {
-        padding: 0.875rem;
-        margin: 0.875rem 0;
+        padding: 1rem;
     }
 
     .highlight-box::before {
-        top: -6px;
-        left: 10px;
-        padding: 0.1rem 0.4rem;
-        font-size: 0.75rem;
+        width: 2px;
+        height: 40%;
     }
 
     .section-title {
@@ -451,7 +431,6 @@ body::-webkit-scrollbar {
 
     .section-content {
         font-size: 0.9rem;
-        line-height: 1.6;
     }
 }
 
