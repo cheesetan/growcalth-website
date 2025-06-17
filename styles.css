@@ -467,13 +467,10 @@ body::-webkit-scrollbar {
         height: 18px;
     }
 
-    .page-container {
-        padding-top: 90px;
-    }
-
     .home-container {
         padding: 0.5rem;
         min-height: calc(100vh - 90px);
+        padding-top: 5rem; /* Adjusted for mobile tab bar position */
     }
 
     .main-content {
@@ -525,13 +522,10 @@ body::-webkit-scrollbar {
         height: 16px;
     }
 
-    .page-container {
-        padding-top: 80px;
-    }
-
     .home-container {
         padding: 0.25rem;
         min-height: calc(100vh - 80px);
+        padding-top: 4.5rem; /* Adjusted for mobile tab bar position */
     }
 
     .download-btn {
@@ -561,12 +555,9 @@ body::-webkit-scrollbar {
         height: 14px;
     }
 
-    .page-container {
-        padding-top: 70px;
-    }
-
     .home-container {
         min-height: calc(100vh - 70px);
+        padding-top: 4rem; /* Adjusted for mobile tab bar position */
     }
 
     .download-btn {
