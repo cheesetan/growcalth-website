@@ -189,6 +189,8 @@ body::-webkit-scrollbar {
     filter: drop-shadow(0 2px 4px rgba(219, 84, 97, 0.3));
 }
 
+/* Home page specific styles */
+
 /* Page Content Containers */
 .page-container {
     display: none;
