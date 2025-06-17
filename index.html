@@ -919,66 +919,42 @@
         </div>
     </div>
 
-    <!-- Privacy Page -->
-    <div class="page-container" id="privacy-page">
-        <div class="home-container">
-            <div class="main-content">
-                <h1 class="title">Privacy Policy</h1>
-                <p class="description">Your privacy is important to us. This privacy policy explains how GrowCalth collects, uses, and protects your information.</p>
-            </div>
-        </div>
-    </div>
+
 
     <script>
         // Tab and routing functionality
-        function switchTab(tabName) {
-            // Update tab buttons
-            document.querySelectorAll('.tab-button').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            document.querySelector(`[data-page="${tabName}"]`).classList.add('active');
-            
-            // Update page containers
-            document.querySelectorAll('.page-container').forEach(page => {
-                page.classList.remove('active');
-            });
-            document.getElementById(`${tabName}-page`).classList.add('active');
-            
-            // Update URL
-            const newPath = tabName === 'home' ? '/' : `/${tabName}`;
-            history.pushState({ page: tabName }, '', newPath);
+        function handleNavigation(tabName) {
+            if (tabName === 'privacy') {
+                // Navigate to the privacy folder
+                window.location.href = '/privacy/';
+            } else if (tabName === 'home') {
+                // Navigate to root
+                window.location.href = '/';
+            }
         }
 
         // Handle tab button clicks
         document.querySelectorAll('.tab-button').forEach(button => {
             button.addEventListener('click', () => {
                 const page = button.getAttribute('data-page');
-                switchTab(page);
+                handleNavigation(page);
             });
         });
 
-        // Handle browser back/forward buttons
-        window.addEventListener('popstate', (event) => {
-            const path = window.location.pathname;
-            let page = 'home';
-            
-            if (path === '/privacy') {
-                page = 'privacy';
-            }
-            
-            switchTab(page);
-        });
-
-        // Initialize based on current URL
+        // Initialize based on current URL - set active tab
         function initializeFromURL() {
             const path = window.location.pathname;
-            let page = 'home';
             
-            if (path === '/privacy') {
-                page = 'privacy';
+            // Update tab buttons based on current path
+            document.querySelectorAll('.tab-button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            if (path === '/privacy/' || path === '/privacy') {
+                document.querySelector('[data-page="privacy"]').classList.add('active');
+            } else {
+                document.querySelector('[data-page="home"]').classList.add('active');
             }
-            
-            switchTab(page);
         }
 
         // Platform detection and redirect logic
