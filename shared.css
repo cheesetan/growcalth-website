@@ -11,8 +11,10 @@ body {
     background: #0a0a0a;
     min-height: 100vh;
     color: white;
-    overflow: hidden;
+    overflow-x: hidden;
     position: relative;
+    /* Allow vertical scrolling for browser detection */
+    overflow-y: auto;
     /* Remove scroll bar */
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none; /* Internet Explorer 10+ */
@@ -22,9 +24,12 @@ body {
 .page-container,
 .leaderboard-container,
 .container {
-    overflow-y: auto;
     overflow-x: hidden;
-    height: 100vh;
+    /* Remove fixed height to allow natural document flow */
+    min-height: 100vh;
+    padding-top: 6rem; /* Restore padding-top for tab bar spacing */
+    /* Ensure no white edges */
+    background: transparent;
 }
 
 /* Remove scroll bar for webkit browsers */
@@ -42,11 +47,26 @@ body::-webkit-scrollbar {
 /* Background layers - fixed and extending beyond browser bounds */
 .background-layers {
     position: fixed;
+    top: -100px;
+    left: -100px;
+    width: calc(100vw + 200px);
+    height: calc(100vh + 200px);
+    z-index: -1;
+    pointer-events: none;
+    /* Ensure background stays fixed during scroll */
+    will-change: transform;
+}
+
+/* Ensure the body background also extends beyond bounds */
+body::before {
+    content: '';
+    position: fixed;
     top: -50px;
     left: -50px;
     width: calc(100vw + 100px);
     height: calc(100vh + 100px);
-    z-index: -1;
+    background: #0a0a0a;
+    z-index: -2;
     pointer-events: none;
 }
 
@@ -58,13 +78,28 @@ body::-webkit-scrollbar {
     height: 100%;
     background: radial-gradient(circle at 20% 80%, #DB5461 0%, transparent 50%),
                 radial-gradient(circle at 80% 20%, #2a2a2a 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, #1a1a1a 0%, transparent 50%);
+                radial-gradient(circle at 40% 40%, #1a1a1a 0%, transparent 50%),
+                radial-gradient(circle at 90% 90%, #DB5461 0%, transparent 40%),
+                radial-gradient(circle at 10% 10%, #2a2a2a 0%, transparent 40%);
     animation: gradientPulse 8s ease-in-out infinite;
 }
 
 @keyframes gradientPulse {
     0%, 100% { opacity: 0.3; }
     50% { opacity: 0.6; }
+}
+
+/* Additional background elements that extend beyond viewport */
+.background-layers::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: calc(100% + 100px);
+    height: calc(100% + 100px);
+    background: radial-gradient(circle at 0% 0%, rgba(219, 84, 97, 0.1) 0%, transparent 30%),
+                radial-gradient(circle at 100% 100%, rgba(42, 42, 42, 0.1) 0%, transparent 30%);
+    pointer-events: none;
 }
 
 .floating-orbs {
@@ -84,8 +119,8 @@ body::-webkit-scrollbar {
 .orb:nth-child(1) {
     width: 300px;
     height: 300px;
-    top: -200px;
-    left: -200px;
+    top: -250px;
+    left: -250px;
     animation-delay: 0s;
 }
 
@@ -93,15 +128,15 @@ body::-webkit-scrollbar {
     width: 200px;
     height: 200px;
     top: 50%;
-    right: -150px;
+    right: -200px;
     animation-delay: -5s;
 }
 
 .orb:nth-child(3) {
     width: 150px;
     height: 150px;
-    bottom: -100px;
-    left: 20%;
+    bottom: -150px;
+    left: 10%;
     animation-delay: -10s;
 }
 
@@ -245,6 +280,13 @@ body::-webkit-scrollbar {
         width: 18px;
         height: 18px;
     }
+
+    /* Adjust container padding for mobile tab bar position */
+    .page-container,
+    .leaderboard-container,
+    .container {
+        padding-top: 5rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -264,6 +306,13 @@ body::-webkit-scrollbar {
     .tab-icon {
         width: 16px;
         height: 16px;
+    }
+
+    /* Adjust container padding for mobile tab bar position */
+    .page-container,
+    .leaderboard-container,
+    .container {
+        padding-top: 4.5rem;
     }
 }
 
@@ -286,4 +335,21 @@ body::-webkit-scrollbar {
         width: 14px;
         height: 14px;
     }
+
+    /* Adjust container padding for mobile tab bar position */
+    .page-container,
+    .leaderboard-container,
+    .container {
+        padding-top: 4rem;
+    }
+}
+
+/* Add extra padding to ensure content extends beyond viewport */
+.page-container::after,
+.leaderboard-container::after,
+.container::after {
+    content: '';
+    display: block;
+    height: 100px;
+    width: 100%;
 } 

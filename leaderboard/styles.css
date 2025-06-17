@@ -10,9 +10,6 @@
     position: relative;
     z-index: 10;
     padding-top: 6rem;
-    overflow-y: auto;
-    overflow-x: hidden;
-    height: 100vh;
 }
 
 /* Remove scrollbar for leaderboard container */
@@ -402,7 +399,6 @@
     .leaderboard-container {
         padding-left: 15px;
         padding-right: 15px;
-        padding-top: 5rem;
     }
 
     .page-title {
@@ -466,7 +462,6 @@
     .leaderboard-container {
         padding-left: 10px;
         padding-right: 10px;
-        padding-top: 4.5rem;
     }
 
     .page-title {
@@ -522,7 +517,6 @@
     .leaderboard-container {
         padding-left: 8px;
         padding-right: 8px;
-        padding-top: 4rem;
     }
 
     .table-header,

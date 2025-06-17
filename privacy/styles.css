@@ -313,7 +313,6 @@ body::-webkit-scrollbar {
 @media (max-width: 768px) {
     .container {
         padding: 1rem 15px;
-        padding-top: 5rem; /* Adjusted for mobile tab bar position */
     }
 
     .header {
@@ -362,7 +361,6 @@ body::-webkit-scrollbar {
 @media (max-width: 480px) {
     .container {
         padding: 0.5rem 15px;
-        padding-top: 4.5rem; /* Adjusted for mobile tab bar position */
     }
 
     .content {
@@ -414,7 +412,6 @@ body::-webkit-scrollbar {
 @media (max-width: 320px) {
     .container {
         padding: 0.25rem 15px;
-        padding-top: 4rem; /* Adjusted for mobile tab bar position */
     }
 
     .content {
