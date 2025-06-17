@@ -3,9 +3,668 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Privacy Policy - GrowCalth</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0a0a;
+            color: white;
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .background-layers {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .bg-gradient {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 80%, #DB5461 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, #2a2a2a 0%, transparent 50%),
+                        radial-gradient(circle at 40% 40%, #1a1a1a 0%, transparent 50%);
+            animation: gradientPulse 8s ease-in-out infinite;
+        }
+
+        @keyframes gradientPulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.6; }
+        }
+
+        .floating-orbs {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(219, 84, 97, 0.1);
+            backdrop-filter: blur(20px);
+            animation: float 15s ease-in-out infinite;
+        }
+
+        .orb:nth-child(1) {
+            width: 300px;
+            height: 300px;
+            top: -150px;
+            left: -150px;
+            animation-delay: 0s;
+        }
+
+        .orb:nth-child(2) {
+            width: 200px;
+            height: 200px;
+            top: 50%;
+            right: -100px;
+            animation-delay: -5s;
+        }
+
+        .orb:nth-child(3) {
+            width: 150px;
+            height: 150px;
+            bottom: -75px;
+            left: 30%;
+            animation-delay: -10s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-30px) rotate(120deg); }
+            66% { transform: translateY(15px) rotate(240deg); }
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding: 4rem 0 2rem;
+        }
+
+        .back-button {
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: rgba(255, 255, 255, 0.08);
+            border: none;
+            border-radius: 15px;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(40px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .back-button:hover {
+            transform: translateY(-2px);
+            background: rgba(219, 84, 97, 0.15);
+            box-shadow: 0 10px 20px rgba(219, 84, 97, 0.2);
+        }
+
+        .logo-container {
+            margin-bottom: 2rem;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(40px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            animation: logoFloat 6s ease-in-out infinite;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        @keyframes logoFloat {
+            0%, 100% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-10px) scale(1.03); }
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            color: #DB5461;
+            filter: drop-shadow(0 2px 4px rgba(219, 84, 97, 0.3));
+        }
+
+        .page-title {
+            font-size: clamp(2.5rem, 6vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ffffff, #DB5461, #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            background-size: 200% 200%;
+            animation: titleGlow 4s ease-in-out infinite;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+
+        @keyframes titleGlow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .page-subtitle {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 400;
+        }
+
+        .content {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 25px;
+            padding: 3rem;
+            backdrop-filter: blur(40px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(219, 84, 97, 0.5), transparent);
+        }
+
+        .last-updated {
+            display: inline-block;
+            background: rgba(219, 84, 97, 0.1);
+            color: #DB5461;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(219, 84, 97, 0.2);
+        }
+
+        .section {
+            margin-bottom: 2.5rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #DB5461;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section-title::before {
+            content: '';
+            width: 4px;
+            height: 20px;
+            background: linear-gradient(135deg, #DB5461, #ff6b7a);
+            border-radius: 2px;
+        }
+
+        .subsection-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.9);
+            margin: 1.5rem 0 0.75rem;
+        }
+
+        .section-content {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        .section-content p {
+            margin-bottom: 1rem;
+        }
+
+        .section-content ul {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
+
+        .section-content li {
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+
+        .section-content li::marker {
+            color: #DB5461;
+        }
+
+        .highlight-box {
+            background: rgba(219, 84, 97, 0.1);
+            border: 1px solid rgba(219, 84, 97, 0.2);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            position: relative;
+        }
+
+        .highlight-box::before {
+            content: '⚠️';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            background: #0a0a0a;
+            padding: 0 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .contact-section {
+            background: rgba(219, 84, 97, 0.05);
+            border: 1px solid rgba(219, 84, 97, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .contact-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #DB5461;
+            margin-bottom: 1rem;
+        }
+
+        .contact-email {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 15px;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(20px);
+        }
+
+        .contact-email:hover {
+            transform: translateY(-2px);
+            background: rgba(219, 84, 97, 0.15);
+            box-shadow: 0 10px 20px rgba(219, 84, 97, 0.2);
+        }
+
+        .toc {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .toc-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .toc-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            list-style: none;
+            padding: 0;
+            justify-content: center;
+        }
+
+        .toc-item {
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .toc-item:hover {
+            background: rgba(219, 84, 97, 0.1);
+            transform: translateY(-2px);
+            border-color: rgba(219, 84, 97, 0.2);
+        }
+
+        .toc-link {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .toc-link:hover {
+            color: #DB5461;
+        }
+
+        /* Mobile optimizations */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .back-button {
+                top: 1rem;
+                left: 1rem;
+                padding: 0.5rem 1rem;
+                font-size: 0.8rem;
+            }
+
+            .header {
+                padding: 3rem 0 1rem;
+                margin-bottom: 2rem;
+            }
+
+            .content {
+                padding: 2rem 1.5rem;
+                border-radius: 20px;
+            }
+
+            .toc-list {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 1.3rem;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0.5rem;
+            }
+
+            .content {
+                padding: 1.5rem 1rem;
+            }
+
+            .section-title {
+                font-size: 1.2rem;
+            }
+
+            .contact-section {
+                padding: 1.5rem 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <p>hi</p>
+    <div class="background-layers">
+        <div class="bg-gradient"></div>
+        <div class="floating-orbs">
+            <div class="orb"></div>
+            <div class="orb"></div>
+            <div class="orb"></div>
+        </div>
+    </div>
+
+    <div class="container">
+        <a href="#" class="back-button">
+            ← Back to App
+        </a>
+
+        <div class="header">
+            <div class="logo-container">
+                <div class="logo">
+                    <svg class="logo-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                    </svg>
+                </div>
+            </div>
+            <h1 class="page-title">Privacy Policy</h1>
+            <p class="page-subtitle">Your privacy and data protection matter to us</p>
+        </div>
+
+        <div class="content">
+            <div class="last-updated">
+                Last updated: April 3, 2025
+            </div>
+
+            <div class="toc">
+                <h2 class="toc-title">Quick Navigation</h2>
+                <ul class="toc-list">
+                    <li class="toc-item"><a href="#overview" class="toc-link">Overview</a></li>
+                    <li class="toc-item"><a href="#definitions" class="toc-link">Definitions</a></li>
+                    <li class="toc-item"><a href="#data-collection" class="toc-link">Data Collection</a></li>
+                    <li class="toc-item"><a href="#data-usage" class="toc-link">How We Use Your Data</a></li>
+                    <li class="toc-item"><a href="#health-data" class="toc-link">Health Data Protection</a></li>
+                    <li class="toc-item"><a href="#data-sharing" class="toc-link">Data Sharing</a></li>
+                    <li class="toc-item"><a href="#security" class="toc-link">Security Measures</a></li>
+                    <li class="toc-item"><a href="#contact" class="toc-link">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="section" id="overview">
+                <h2 class="section-title">Overview</h2>
+                <div class="section-content">
+                    <p>This Privacy Policy describes our policies and procedures on the collection, use and disclosure of your information when you use GrowCalth and tells you about your privacy rights and how the law protects you.</p>
+                    <p>We use your personal data to provide and improve the Service. By using the Service, you agree to the collection and use of information in accordance with this Privacy Policy.</p>
+                    <div class="highlight-box">
+                        <strong>GrowCalth</strong> is a company in SST Inc., which is an incubator for technology companies and start-ups in the School of Science and Technology, Singapore.
+                    </div>
+                </div>
+            </div>
+
+            <div class="section" id="definitions">
+                <h2 class="section-title">Key Definitions</h2>
+                <div class="section-content">
+                    <ul>
+                        <li><strong>You</strong> - The individual accessing or using the Service</li>
+                        <li><strong>Company</strong> - Refers to GrowCalth, SST Inc. and the School of Science and Technology, Singapore</li>
+                        <li><strong>Service</strong> - Refers to the GrowCalth Application or Website</li>
+                        <li><strong>Personal Data</strong> - Any information that relates to an identified or identifiable individual</li>
+                        <li><strong>Usage Data</strong> - Data collected automatically, including crash logs and analytics information</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section" id="data-collection">
+                <h2 class="section-title">Data We Collect</h2>
+                <div class="section-content">
+                    <h3 class="subsection-title">Personal Data</h3>
+                    <p>While using our Service, we may ask you to provide certain personally identifiable information, including:</p>
+                    <ul>
+                        <li>Email address (Usage Data)</li>
+                        <li>Crash Logs (Usage Data)</li>
+                    </ul>
+
+                    <h3 class="subsection-title">Usage Data</h3>
+                    <p>Usage Data is collected automatically when using the Service and may include:</p>
+                    <ul>
+                        <li>Your Device's Internet Protocol address (IP address)</li>
+                        <li>Device type and operating system version</li>
+                        <li>App screens you visit and time spent</li>
+                        <li>Unique device identifiers and diagnostic data</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section" id="data-usage">
+                <h2 class="section-title">How We Use Your Data</h2>
+                <div class="section-content">
+                    <p>The Company may use Personal Data for the following purposes:</p>
+                    <ul>
+                        <li><strong>Service Provision:</strong> To provide and maintain our Service, including monitoring usage</li>
+                        <li><strong>Account Management:</strong> To manage your account and provide access to service functionalities</li>
+                        <li><strong>Communication:</strong> To contact you regarding updates, functionality information, and necessary notifications</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section" id="health-data">
+                <h2 class="section-title">Health Data Protection</h2>
+                <div class="section-content">
+                    <div class="highlight-box">
+                        <strong>Your health data security is our top priority.</strong> We implement special protections for all health-related information.
+                    </div>
+                    
+                    <h3 class="subsection-title">Google Fitness API & Health Connect Data</h3>
+                    <p><strong>Prior to version 3.0.0:</strong> Our app accesses only two specific data types: "fitness.activity.read" and "fitness.body.read" under Google's Fitness API.</p>
+                    <p><strong>Version 3.0.0 and later:</strong> We require read-only access to Steps and Distance data through Health Connect.</p>
+
+                    <h3 class="subsection-title">Data Protection Principles</h3>
+                    <ul>
+                        <li><strong>Local Storage Only:</strong> All health data is stored securely on your device and never transmitted externally</li>
+                        <li><strong>No External Access:</strong> Health data is only accessed through our app on your device</li>
+                        <li><strong>No Sharing:</strong> We never share your health data with third parties</li>
+                        <li><strong>Encryption:</strong> All health-related information is encrypted and/or hashed with salt for maximum security</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section" id="data-sharing">
+                <h2 class="section-title">Data Sharing</h2>
+                <div class="section-content">
+                    <p>We may share your personal information only in the following situations:</p>
+                    <ul>
+                        <li><strong>Service Providers:</strong> To monitor and analyze service usage and contact you when necessary</li>
+                        <li><strong>Affiliates:</strong> With companies under common control, requiring adherence to this Privacy Policy</li>
+                        <li><strong>Business Partners:</strong> To offer specific products, services, or promotions</li>
+                        <li><strong>Legal Requirements:</strong> When required by law or valid government requests</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section" id="security">
+                <h2 class="section-title">Security Measures</h2>
+                <div class="section-content">
+                    <p>The security of your Personal Data is important to us. We implement multiple layers of protection:</p>
+                    <ul>
+                        <li>Encryption of sensitive data in transit and at rest</li>
+                        <li>Secure data transmission protocols</li>
+                        <li>Regular security audits and updates</li>
+                        <li>Access controls and authentication systems</li>
+                    </ul>
+                    <div class="highlight-box">
+                        While we strive to use commercially acceptable means to protect your data, no method of transmission over the Internet or electronic storage is 100% secure.
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Data Retention</h2>
+                <div class="section-content">
+                    <p>We retain your Personal Data only for as long as necessary for the purposes outlined in this Privacy Policy. Usage Data is generally retained for shorter periods unless needed for security improvements or legal compliance.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Children's Privacy</h2>
+                <div class="section-content">
+                    <p>Our Service does not address anyone under the age of 13. We do not knowingly collect personally identifiable information from children under 13. If you are a parent or guardian and believe your child has provided us with Personal Data, please contact us immediately.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Policy Updates</h2>
+                <div class="section-content">
+                    <p>We may update our Privacy Policy from time to time. We will notify you of any changes by:</p>
+                    <ul>
+                        <li>Posting the new Privacy Policy on this page</li>
+                        <li>Sending you an email notification</li>
+                        <li>Displaying a prominent notice in our Service</li>
+                        <li>Updating the "Last updated" date at the top of this policy</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="contact-section" id="contact">
+                <h2 class="contact-title">Questions or Concerns?</h2>
+                <p style="margin-bottom: 1.5rem; color: rgba(255, 255, 255, 0.8);">
+                    If you have any questions about this Privacy Policy, please don't hesitate to contact us.
+                </p>
+                <a href="mailto:growcalth.main@gmail.com" class="contact-email">
+                    📧 growcalth.main@gmail.com
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll progress indicator
+        window.addEventListener('scroll', () => {
+            const scrollPercent = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+            document.body.style.setProperty('--scroll-progress', `${scrollPercent}%`);
+        });
+    </script>
 </body>
 </html>
