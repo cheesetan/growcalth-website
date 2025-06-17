@@ -262,8 +262,7 @@ body::before {
 
 /* Add extra padding to ensure content extends beyond viewport */
 .page-container::after,
-.leaderboard-container::after,
-.container::after {
+.leaderboard-container::after {
     content: '';
     display: block;
     width: 100%;
@@ -304,8 +303,7 @@ body::before {
 
     /* Add extra padding to ensure content extends beyond viewport on mobile */
     .page-container::after,
-    .leaderboard-container::after,
-    .container::after {
+    .leaderboard-container::after {
         height: 50px;
     }
 }
@@ -338,8 +336,7 @@ body::before {
 
     /* Add extra padding to ensure content extends beyond viewport on mobile */
     .page-container::after,
-    .leaderboard-container::after,
-    .container::after {
+    .leaderboard-container::after {
         height: 50px;
     }
 }
@@ -373,8 +370,7 @@ body::before {
 
     /* Add extra padding to ensure content extends beyond viewport on mobile */
     .page-container::after,
-    .leaderboard-container::after,
-    .container::after {
+    .leaderboard-container::after {
         height: 50px;
     }
 } 
