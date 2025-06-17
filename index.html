@@ -36,6 +36,12 @@
             </svg>
             Home
         </button>
+        <button class="tab-button" data-page="leaderboard">
+            <svg class="tab-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+            </svg>
+            Leaderboard
+        </button>
         <button class="tab-button" data-page="privacy">
             <svg class="tab-icon" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M10,17L6,13L7.41,11.59L10,14.17L16.59,7.58L18,9L10,17Z"/>
@@ -95,6 +101,9 @@
             } else if (tabName === 'home') {
                 // Navigate to root
                 window.location.href = '/';
+            } else if (tabName === 'leaderboard') {
+                // Navigate to leaderboard
+                window.location.href = '/leaderboard/';
             }
         }
 
@@ -117,6 +126,8 @@
             
             if (path === '/privacy/' || path === '/privacy') {
                 document.querySelector('[data-page="privacy"]').classList.add('active');
+            } else if (path === '/leaderboard/' || path === '/leaderboard') {
+                document.querySelector('[data-page="leaderboard"]').classList.add('active');
             } else {
                 document.querySelector('[data-page="home"]').classList.add('active');
             }

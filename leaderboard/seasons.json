@@ -1,0 +1,86 @@
+{
+  "seasons": [
+    {
+      "id": 2,
+      "title": "Season 2",
+      "date": "April 2025",
+      "stats": {
+        "totalSteps": "~160,000,000",
+        "totalDistance": "~120,000 km"
+      },
+      "leaderboard": [
+        {
+          "rank": 1,
+          "house": "Yellow",
+          "points": "7,293",
+          "position": "winner"
+        },
+        {
+          "rank": 2,
+          "house": "Green",
+          "points": "6,770",
+          "position": "second"
+        },
+        {
+          "rank": 3,
+          "house": "Blue",
+          "points": "6,739",
+          "position": "third"
+        },
+        {
+          "rank": 4,
+          "house": "Black",
+          "points": "6,566",
+          "position": "normal"
+        },
+        {
+          "rank": 5,
+          "house": "Red",
+          "points": "5,333",
+          "position": "normal"
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "title": "Season 1",
+      "date": "April 2024",
+      "stats": {
+        "totalSteps": "~55,000,000",
+        "totalDistance": "~41,000 km"
+      },
+      "leaderboard": [
+        {
+          "rank": 1,
+          "house": "Black",
+          "points": "2,794",
+          "position": "winner"
+        },
+        {
+          "rank": 2,
+          "house": "Green",
+          "points": "2,356",
+          "position": "second"
+        },
+        {
+          "rank": 3,
+          "house": "Yellow",
+          "points": "2,187",
+          "position": "third"
+        },
+        {
+          "rank": 4,
+          "house": "Red",
+          "points": "2,016",
+          "position": "normal"
+        },
+        {
+          "rank": 5,
+          "house": "Blue",
+          "points": "1,794",
+          "position": "normal"
+        }
+      ]
+    }
+  ]
+} 

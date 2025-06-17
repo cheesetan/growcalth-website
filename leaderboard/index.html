@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GrowCalth - Historical Leaderboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <link rel="stylesheet" href="../shared.css">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="background-layers">
+        <div class="bg-gradient"></div>
+        <div class="floating-orbs">
+            <div class="orb"></div>
+            <div class="orb"></div>
+            <div class="orb"></div>
+        </div>
+    </div>
+
+    <!-- Floating Tab Bar -->
+    <div class="floating-tab-bar">
+        <button class="tab-button" data-page="home">
+            <svg class="tab-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+            Home
+        </button>
+        <button class="tab-button active" data-page="leaderboard">
+            <svg class="tab-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+            </svg>
+            Leaderboard
+        </button>
+        <button class="tab-button" data-page="privacy">
+            <svg class="tab-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M10,17L6,13L7.41,11.59L10,14.17L16.59,7.58L18,9L10,17Z"/>
+            </svg>
+            Privacy
+        </button>
+    </div>
+
+    <!-- Leaderboard Page -->
+    <div class="page-container active" id="leaderboard-page">
+        <div class="leaderboard-container">
+            <div class="header">
+                <div class="logo-container">
+                    <div class="logo">
+                        <svg class="logo-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+                        </svg>
+                    </div>
+                </div>
+                <h1 class="page-title">Historical Leaderboard</h1>
+                <p class="description">Relive the epic battles between houses and see how far we've walked together!</p>
+            </div>
+            
+            <div class="main-content">
+                <div class="seasons-container" id="seasons-container">
+                    <!-- Seasons will be dynamically loaded here -->
+                </div>
+            </div>
+            
+            <div class="footer">
+                <p>GrowCalth © 2025 • Made for SST Students, by SST Students</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Load and render season data
+        async function loadSeasonData() {
+            try {
+                const response = await fetch('seasons.json');
+                const data = await response.json();
+                renderSeasons(data.seasons);
+            } catch (error) {
+                console.error('Error loading season data:', error);
+                document.getElementById('seasons-container').innerHTML = 
+                    '<div class="error-message">Failed to load season data. Please try again later.</div>';
+            }
+        }
+
+        function renderSeasons(seasons) {
+            const container = document.getElementById('seasons-container');
+            container.innerHTML = '';
+
+            // Find the latest season (highest ID)
+            const latestSeasonId = Math.max(...seasons.map(s => s.id));
+
+            seasons.forEach(season => {
+                const seasonCard = createSeasonCard(season, season.id === latestSeasonId);
+                container.appendChild(seasonCard);
+            });
+        }
+
+        function createSeasonCard(season, isLatest = false) {
+            const seasonCard = document.createElement('div');
+            seasonCard.className = 'season-card';
+
+            const dateClass = isLatest ? 'season-date latest' : 'season-date';
+
+            seasonCard.innerHTML = `
+                <div class="season-header">
+                    <h2 class="season-title">${season.title}</h2>
+                    <div class="${dateClass}">${season.date}</div>
+                </div>
+                <div class="season-content">
+                    <div class="stats-section">
+                        <div class="stat-card">
+                            <div class="stat-title">Total Steps</div>
+                            <div class="stat-value">${season.stats.totalSteps}</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-title">Total Distance</div>
+                            <div class="stat-value">${season.stats.totalDistance}</div>
+                        </div>
+                    </div>
+                    <div class="leaderboard-table">
+                        <div class="table-header">
+                            <div class="rank-col">Rank</div>
+                            <div class="house-col">House</div>
+                            <div class="points-col">Points</div>
+                        </div>
+                        <div class="table-body">
+                            ${season.leaderboard.map(entry => `
+                                <div class="leaderboard-row ${entry.position}">
+                                    <div class="rank">${entry.rank}</div>
+                                    <div class="house ${entry.house.toLowerCase()}">${entry.house}</div>
+                                    <div class="points">${entry.points}</div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            return seasonCard;
+        }
+
+        // Tab and routing functionality
+        function handleNavigation(tabName) {
+            if (tabName === 'privacy') {
+                // Navigate to the privacy folder
+                window.location.href = '/privacy/';
+            } else if (tabName === 'home') {
+                // Navigate to root
+                window.location.href = '/';
+            } else if (tabName === 'leaderboard') {
+                // Navigate to leaderboard
+                window.location.href = '/leaderboard/';
+            }
+        }
+
+        // Handle tab button clicks
+        document.querySelectorAll('.tab-button').forEach(button => {
+            button.addEventListener('click', () => {
+                const page = button.getAttribute('data-page');
+                handleNavigation(page);
+            });
+        });
+
+        // Initialize based on current URL - set active tab
+        function initializeFromURL() {
+            const path = window.location.pathname;
+            
+            // Update tab buttons based on current path
+            document.querySelectorAll('.tab-button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            if (path === '/privacy/' || path === '/privacy') {
+                document.querySelector('[data-page="privacy"]').classList.add('active');
+            } else if (path === '/leaderboard/' || path === '/leaderboard') {
+                document.querySelector('[data-page="leaderboard"]').classList.add('active');
+            } else {
+                document.querySelector('[data-page="home"]').classList.add('active');
+            }
+        }
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeFromURL();
+            loadSeasonData();
+        });
+
+        // Add subtle parallax effect on mouse move (desktop only)
+        if (window.innerWidth > 768) {
+            document.addEventListener('mousemove', (e) => {
+                const orbs = document.querySelectorAll('.orb');
+                const x = e.clientX / window.innerWidth;
+                const y = e.clientY / window.innerHeight;
+                
+                orbs.forEach((orb, index) => {
+                    const speed = (index + 1) * 0.5;
+                    const xPos = (x - 0.5) * speed;
+                    const yPos = (y - 0.5) * speed;
+                    orb.style.transform = `translate(${xPos}px, ${yPos}px)`;
+                });
+            });
+        }
+
+        // Handle orientation changes
+        window.addEventListener('orientationchange', function() {
+            setTimeout(() => {
+                // Force a repaint to fix any layout issues
+                document.body.style.display = 'none';
+                document.body.offsetHeight; // trigger reflow
+                document.body.style.display = 'flex';
+            }, 100);
+        });
+    </script>
+</body>
+</html> 

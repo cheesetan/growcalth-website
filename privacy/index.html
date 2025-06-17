@@ -37,6 +37,12 @@
             </svg>
             Home
         </button>
+        <button class="tab-button" data-page="leaderboard">
+            <svg class="tab-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+            </svg>
+            Leaderboard
+        </button>
         <button class="tab-button active" data-page="privacy">
             <svg class="tab-icon" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M10,17L6,13L7.41,11.59L10,14.17L16.59,7.58L18,9L10,17Z"/>
@@ -49,7 +55,9 @@
         <div class="header">
             <div class="logo-container">
                 <div class="logo">
-                    <img src="../assets/GrowCalth-iOS-Default-1024x1024@1x.png" alt="GrowCalth App Icon" class="logo-icon">
+                    <svg class="logo-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M10,17L6,13L7.41,11.59L10,14.17L16.59,7.58L18,9L10,17Z"/>
+                    </svg>
                 </div>
             </div>
             <h1 class="page-title">Privacy Policy</h1>
@@ -274,6 +282,9 @@
             } else if (tabName === 'home') {
                 // Navigate to root
                 window.location.href = '/';
+            } else if (tabName === 'leaderboard') {
+                // Navigate to leaderboard
+                window.location.href = '/leaderboard/';
             }
         }
 

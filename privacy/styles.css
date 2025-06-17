@@ -25,7 +25,7 @@ body::-webkit-scrollbar {
 .container {
     max-width: 900px;
     margin: 0 auto;
-    padding: 2rem;
+    padding: 2rem 20px;
     padding-top: 100px;
     position: relative;
     z-index: 10;
@@ -44,15 +44,16 @@ body::-webkit-scrollbar {
 .logo {
     width: 80px;
     height: 80px;
-    background: rgba(255, 255, 255, 0.05);
+    background: linear-gradient(135deg, #DB5461, #FF6B6B);
     border-radius: 20px;
     margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: center;
-    backdrop-filter: blur(40px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    animation: logoFloat 6s ease-in-out infinite;
+    box-shadow: 
+        0 8px 32px rgba(219, 84, 97, 0.3),
+        0 4px 16px rgba(219, 84, 97, 0.2);
+    animation: logoFloat 3s ease-in-out infinite;
     position: relative;
     overflow: hidden;
 }
@@ -64,15 +65,15 @@ body::-webkit-scrollbar {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-    animation: shimmer 3s ease-in-out infinite;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    animation: shimmer 2s infinite;
 }
 
 .logo-icon {
     width: 40px;
     height: 40px;
-    color: #DB5461;
-    filter: drop-shadow(0 2px 4px rgba(219, 84, 97, 0.3));
+    color: white;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
 }
 
 .page-title {
@@ -100,8 +101,8 @@ body::-webkit-scrollbar {
 }
 
 @keyframes logoFloat {
-    0%, 100% { transform: translateY(0px) scale(1); }
-    50% { transform: translateY(-15px) scale(1.05); }
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
 }
 
 .content {
@@ -305,9 +306,8 @@ body::-webkit-scrollbar {
 /* Mobile optimizations with increased horizontal margins */
 @media (max-width: 768px) {
     .container {
-        padding: 1rem 2rem;
+        padding: 1rem 15px;
         padding-top: 110px;
-        margin: 0 1rem;
     }
 
     .header {
@@ -355,9 +355,8 @@ body::-webkit-scrollbar {
 
 @media (max-width: 480px) {
     .container {
-        padding: 0.5rem 1.5rem;
+        padding: 0.5rem 15px;
         padding-top: 100px;
-        margin: 0 0.5rem;
     }
 
     .content {
@@ -408,9 +407,8 @@ body::-webkit-scrollbar {
 
 @media (max-width: 320px) {
     .container {
-        padding: 0.25rem 1rem;
+        padding: 0.25rem 15px;
         padding-top: 90px;
-        margin: 0 0.25rem;
     }
 
     .content {
