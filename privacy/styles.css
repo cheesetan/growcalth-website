@@ -28,7 +28,7 @@ body::-webkit-scrollbar {
     padding: 2rem 20px;
     position: relative;
     z-index: 10;
-    padding-top: 2rem;
+    padding-top: 6rem;
 }
 
 .header {

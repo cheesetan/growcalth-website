@@ -25,7 +25,6 @@ body {
     overflow-y: auto;
     overflow-x: hidden;
     height: 100vh;
-    padding-top: 80px;
 }
 
 /* Remove scroll bar for webkit browsers */

@@ -7,7 +7,17 @@
     margin: 0 auto;
     padding-left: 20px;
     padding-right: 20px;
-    padding-top: 2rem;
+    position: relative;
+    z-index: 10;
+    padding-top: 6rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 100vh;
+}
+
+/* Remove scrollbar for leaderboard container */
+.leaderboard-container::-webkit-scrollbar {
+    display: none;
 }
 
 /* Header */
