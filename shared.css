@@ -146,7 +146,7 @@ body::before {
     66% { transform: translateY(15px) rotate(240deg); }
 }
 
-/* iPad-style Floating Tab Bar */
+/* iPad-style Floating Tab Bar - iOS 18/iPadOS Enhanced */
 .floating-tab-bar {
     position: fixed;
     top: 20px;
@@ -167,11 +167,60 @@ body::before {
         inset 0 1px 0 rgba(255, 255, 255, 0.1);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     animation: tabBarFloat 3s ease-in-out infinite;
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+.floating-tab-bar.visible {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
 }
 
 @keyframes tabBarFloat {
     0%, 100% { transform: translateX(-50%) translateY(0px); }
     50% { transform: translateX(-50%) translateY(-2px); }
+}
+
+.tab-bg-highlight {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    box-shadow: 
+        0 4px 16px rgba(219, 84, 97, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.tab-ripple-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 2;
+    border-radius: 25px;
+    overflow: hidden;
+}
+
+.tab-ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(0);
+    animation: rippleExpand 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+}
+
+@keyframes rippleExpand {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
 }
 
 .tab-button {
@@ -193,6 +242,23 @@ body::before {
     min-width: 100px;
     justify-content: center;
     overflow: hidden;
+    z-index: 3;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.tab-button:focus {
+    outline: none;
+}
+
+.tab-button:focus-visible {
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
+}
+
+.tab-button.focused {
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.3);
 }
 
 .tab-button::before {
@@ -234,6 +300,23 @@ body::before {
     pointer-events: none;
 }
 
+.tab-button.disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.tab-button.disabled:hover::before {
+    opacity: 0;
+}
+
+.tab-icon-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .tab-icon {
     width: 16px;
     height: 16px;
@@ -244,6 +327,114 @@ body::before {
     filter: drop-shadow(0 2px 4px rgba(219, 84, 97, 0.3));
 }
 
+.tab-badge {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    background: #ff3b30;
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 600;
+    min-width: 16px;
+    height: 16px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    animation: badgePulse 2s ease-in-out infinite;
+}
+
+@keyframes badgePulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.tab-label {
+    transition: all 0.3s ease;
+}
+
+.tab-touch-target {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    z-index: -1;
+}
+
+/* Haptic feedback visual indicators */
+.tab-button:active {
+    transform: scale(0.95);
+    transition: transform 0.1s ease;
+}
+
+.tab-button:active::before {
+    opacity: 0.2;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .floating-tab-bar {
+        background: rgba(0, 0, 0, 0.9);
+        border: 2px solid white;
+    }
+    
+    .tab-button {
+        color: white;
+        border: 1px solid transparent;
+    }
+    
+    .tab-button.active {
+        background: white;
+        color: black;
+        border: 1px solid white;
+    }
+    
+    .tab-bg-highlight {
+        background: white;
+        border: 1px solid white;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    .floating-tab-bar {
+        animation: none;
+        transition: none;
+    }
+    
+    .tab-button {
+        transition: none;
+    }
+    
+    .tab-bg-highlight {
+        transition: none;
+    }
+    
+    .tab-ripple {
+        animation: none;
+    }
+    
+    @keyframes tabBarFloat {
+        0%, 100% { transform: translateX(-50%) translateY(0px); }
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .floating-tab-bar {
+        background: rgba(0, 0, 0, 0.8);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .tab-bg-highlight {
+        background: rgba(255, 255, 255, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+}
+
 /* Common animations */
 @keyframes shimmer {
     0% { left: -100%; }
@@ -251,13 +442,13 @@ body::before {
 }
 
 @keyframes logoFloat {
-    0%, 100% { transform: translateY(0px) scale(1); }
-    50% { transform: translateY(-15px) scale(1.05); }
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
 }
 
 @keyframes titleGlow {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
+    0%, 100% { text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); }
+    50% { text-shadow: 0 4px 16px rgba(219, 84, 97, 0.5); }
 }
 
 /* Add extra padding to ensure content extends beyond viewport */
@@ -276,22 +467,22 @@ body::before {
 /* Mobile optimizations */
 @media (max-width: 768px) {
     .floating-tab-bar {
-        top: 25px;
-        padding: 8px;
-        border-radius: 25px;
-        gap: 6px;
+        top: 15px;
+        padding: 4px;
+        gap: 2px;
+        border-radius: 20px;
     }
 
     .tab-button {
-        padding: 14px 24px;
-        font-size: 0.9rem;
-        min-width: 100px;
-        gap: 8px;
+        padding: 10px 16px;
+        min-width: 80px;
+        font-size: 0.8rem;
+        gap: 6px;
     }
 
     .tab-icon {
-        width: 18px;
-        height: 18px;
+        width: 14px;
+        height: 14px;
     }
 
     /* Adjust container padding for mobile tab bar position */
@@ -310,55 +501,22 @@ body::before {
 
 @media (max-width: 480px) {
     .floating-tab-bar {
-        top: 20px;
-        padding: 6px;
+        top: 10px;
+        padding: 3px;
+        gap: 1px;
+        border-radius: 18px;
+    }
+
+    .tab-button {
+        padding: 8px 12px;
+        min-width: 70px;
+        font-size: 0.75rem;
         gap: 4px;
     }
 
-    .tab-button {
-        padding: 12px 20px;
-        font-size: 0.85rem;
-        min-width: 90px;
-        gap: 6px;
-    }
-
     .tab-icon {
-        width: 16px;
-        height: 16px;
-    }
-
-    /* Adjust container padding for mobile tab bar position */
-    .page-container,
-    .leaderboard-container,
-    .container {
-        padding-top: 4.5rem;
-    }
-
-    /* Add extra padding to ensure content extends beyond viewport on mobile */
-    .page-container::after,
-    .leaderboard-container::after {
-        height: 50px;
-    }
-}
-
-/* Very small screens */
-@media (max-width: 320px) {
-    .floating-tab-bar {
-        top: 15px;
-        padding: 5px;
-        gap: 3px;
-    }
-
-    .tab-button {
-        padding: 10px 16px;
-        font-size: 0.8rem;
-        min-width: 80px;
-        gap: 5px;
-    }
-
-    .tab-icon {
-        width: 14px;
-        height: 14px;
+        width: 12px;
+        height: 12px;
     }
 
     /* Adjust container padding for mobile tab bar position */
@@ -368,9 +526,58 @@ body::before {
         padding-top: 4rem;
     }
 
-    /* Add extra padding to ensure content extends beyond viewport on mobile */
     .page-container::after,
     .leaderboard-container::after {
-        height: 50px;
+        height: 40px;
     }
+}
+
+@media (max-width: 320px) {
+    .floating-tab-bar {
+        top: 8px;
+        padding: 2px;
+        gap: 1px;
+        border-radius: 16px;
+    }
+
+    .tab-button {
+        padding: 6px 10px;
+        min-width: 60px;
+        font-size: 0.7rem;
+        gap: 3px;
+    }
+
+    .tab-icon {
+        width: 11px;
+        height: 11px;
+    }
+
+    .page-container,
+    .leaderboard-container,
+    .container {
+        padding-top: 3.5rem;
+    }
+
+    .page-container::after,
+    .leaderboard-container::after {
+        height: 30px;
+    }
+}
+
+.tab-highlight-bg {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    box-shadow: 
+        0 4px 16px rgba(219, 84, 97, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    z-index: 1;
+    transition: left 0.3s cubic-bezier(0.4,0,0.2,1), width 0.3s cubic-bezier(0.4,0,0.2,1);
+    pointer-events: auto;
+    cursor: grab;
+}
+
+.tab-highlight-bg:active {
+    cursor: grabbing;
 } 
