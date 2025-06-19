@@ -147,7 +147,7 @@ body::before {
     66% { transform: translateY(15px) rotate(240deg); }
 }
 
-/* iPad-style Floating Tab Bar - iOS 18/iPadOS Enhanced */
+/* iPad-style Floating Tab Bar */
 .floating-tab-bar {
     position: fixed;
     top: 20px;
@@ -168,60 +168,11 @@ body::before {
         inset 0 1px 0 rgba(255, 255, 255, 0.1);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     animation: tabBarFloat 3s ease-in-out infinite;
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
-}
-
-.floating-tab-bar.visible {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
 }
 
 @keyframes tabBarFloat {
     0%, 100% { transform: translateX(-50%) translateY(0px); }
     50% { transform: translateX(-50%) translateY(-2px); }
-}
-
-.tab-bg-highlight {
-    position: absolute;
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 20px;
-    box-shadow: 
-        0 4px 16px rgba(219, 84, 97, 0.2),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    pointer-events: none;
-    z-index: 1;
-}
-
-.tab-ripple-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    pointer-events: none;
-    z-index: 2;
-    border-radius: 25px;
-    overflow: hidden;
-}
-
-.tab-ripple {
-    position: absolute;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.3);
-    transform: scale(0);
-    animation: rippleExpand 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    pointer-events: none;
-}
-
-@keyframes rippleExpand {
-    to {
-        transform: scale(4);
-        opacity: 0;
-    }
 }
 
 .tab-button {
@@ -243,23 +194,6 @@ body::before {
     min-width: 100px;
     justify-content: center;
     overflow: hidden;
-    z-index: 3;
-    user-select: none;
-    -webkit-user-select: none;
-    -webkit-tap-highlight-color: transparent;
-}
-
-.tab-button:focus {
-    outline: none;
-}
-
-.tab-button:focus-visible {
-    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
-}
-
-.tab-button.focused {
-    background: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.3);
 }
 
 .tab-button::before {
@@ -301,23 +235,6 @@ body::before {
     pointer-events: none;
 }
 
-.tab-button.disabled {
-    opacity: 0.4;
-    cursor: not-allowed;
-    pointer-events: none;
-}
-
-.tab-button.disabled:hover::before {
-    opacity: 0;
-}
-
-.tab-icon-container {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 .tab-icon {
     width: 16px;
     height: 16px;
@@ -326,114 +243,6 @@ body::before {
 
 .tab-button.active .tab-icon {
     filter: drop-shadow(0 2px 4px rgba(219, 84, 97, 0.3));
-}
-
-.tab-badge {
-    position: absolute;
-    top: -6px;
-    right: -6px;
-    background: #ff3b30;
-    color: white;
-    font-size: 0.7rem;
-    font-weight: 600;
-    min-width: 16px;
-    height: 16px;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 4px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    animation: badgePulse 2s ease-in-out infinite;
-}
-
-@keyframes badgePulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-}
-
-.tab-label {
-    transition: all 0.3s ease;
-}
-
-.tab-touch-target {
-    position: absolute;
-    top: -10px;
-    left: -10px;
-    right: -10px;
-    bottom: -10px;
-    z-index: -1;
-}
-
-/* Haptic feedback visual indicators */
-.tab-button:active {
-    transform: scale(0.95);
-    transition: transform 0.1s ease;
-}
-
-.tab-button:active::before {
-    opacity: 0.2;
-}
-
-/* High contrast mode support */
-@media (prefers-contrast: high) {
-    .floating-tab-bar {
-        background: rgba(0, 0, 0, 0.9);
-        border: 2px solid white;
-    }
-    
-    .tab-button {
-        color: white;
-        border: 1px solid transparent;
-    }
-    
-    .tab-button.active {
-        background: white;
-        color: black;
-        border: 1px solid white;
-    }
-    
-    .tab-bg-highlight {
-        background: white;
-        border: 1px solid white;
-    }
-}
-
-/* Reduced motion support */
-@media (prefers-reduced-motion: reduce) {
-    .floating-tab-bar {
-        animation: none;
-        transition: none;
-    }
-    
-    .tab-button {
-        transition: none;
-    }
-    
-    .tab-bg-highlight {
-        transition: none;
-    }
-    
-    .tab-ripple {
-        animation: none;
-    }
-    
-    @keyframes tabBarFloat {
-        0%, 100% { transform: translateX(-50%) translateY(0px); }
-    }
-}
-
-/* Dark mode support */
-@media (prefers-color-scheme: dark) {
-    .floating-tab-bar {
-        background: rgba(0, 0, 0, 0.8);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-    }
-    
-    .tab-bg-highlight {
-        background: rgba(255, 255, 255, 0.2);
-        border: 1px solid rgba(255, 255, 255, 0.3);
-    }
 }
 
 /* Home page specific styles */
@@ -544,80 +353,93 @@ html::-webkit-scrollbar {
 }
 
 @keyframes logoFloat {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
+    0%, 100% { transform: translateY(0px) scale(1); }
+    50% { transform: translateY(-15px) scale(1.05); }
 }
 
 .logo-icon {
     width: 60px;
     height: 60px;
-    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+    color: #DB5461;
+    filter: drop-shadow(0 4px 8px rgba(219, 84, 97, 0.3));
 }
 
 .title {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: white;
-    text-align: center;
-    margin-bottom: 0.5rem;
-    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    animation: titleGlow 3s ease-in-out infinite;
+    font-size: clamp(2.5rem, 8vw, 3.5rem);
+    font-weight: 800;
+    margin-bottom: 0.75rem;
+    background: linear-gradient(135deg, #ffffff, #DB5461, #ffffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-size: 200% 200%;
+    animation: titleGlow 4s ease-in-out infinite;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
 }
 
 @keyframes titleGlow {
-    0%, 100% { text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); }
-    50% { text-shadow: 0 4px 16px rgba(219, 84, 97, 0.5); }
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
 }
 
 .subtitle {
-    font-size: 1.2rem;
-    color: rgba(255, 255, 255, 0.8);
-    text-align: center;
-    margin-bottom: 2rem;
+    font-size: clamp(1.1rem, 4vw, 1.3rem);
     font-weight: 400;
+    margin-bottom: 0.5rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.4;
 }
 
 .description {
-    font-size: 1rem;
-    color: rgba(255, 255, 255, 0.7);
-    text-align: center;
-    max-width: 400px;
-    line-height: 1.6;
+    font-size: clamp(0.9rem, 3.5vw, 1rem);
+    font-weight: 300;
     margin-bottom: 2rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+    max-width: 400px;
+    text-align: center;
 }
 
 .download-section {
-    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+    width: 100%;
 }
 
 .download-title {
-    font-size: 1.1rem;
-    color: rgba(255, 255, 255, 0.9);
-    text-align: center;
-    margin-bottom: 1rem;
+    font-size: clamp(1rem, 3.5vw, 1.1rem);
     font-weight: 500;
+    margin-bottom: 1.5rem;
+    color: rgba(255, 255, 255, 0.8);
+    text-align: center;
 }
 
 .download-buttons {
     display: flex;
+    flex-direction: column;
     gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
 }
 
 .download-btn {
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    gap: 8px;
-    padding: 12px 24px;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 12px;
+    gap: 15px;
+    padding: 18px 35px;
+    background: rgba(255, 255, 255, 0.08);
+    border: none;
+    border-radius: 20px;
     color: white;
     text-decoration: none;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(20px);
+    font-weight: 600;
+    font-size: clamp(1rem, 3.5vw, 1.1rem);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(40px);
+    min-width: min(280px, 90vw);
+    max-width: 320px;
+    width: 100%;
+    justify-content: center;
     position: relative;
     overflow: hidden;
 }
@@ -630,92 +452,103 @@ html::-webkit-scrollbar {
     content: '';
     position: absolute;
     top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-    transition: left 0.5s ease;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(219, 84, 97, 0.2), rgba(255, 255, 255, 0.1));
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    border-radius: 20px;
 }
 
 .download-btn:hover::before {
-    left: 100%;
+    opacity: 1;
 }
 
 .download-btn:hover {
-    background: rgba(255, 255, 255, 0.2);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(219, 84, 97, 0.3);
+    background: rgba(219, 84, 97, 0.15);
 }
 
 .download-btn:active {
-    transform: translateY(0);
+    transform: translateY(-1px) scale(1.01);
 }
 
 .platform-icon {
-    width: 20px;
-    height: 20px;
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+    width: 28px;
+    height: 28px;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+    flex-shrink: 0;
 }
 
 .btn-text {
-    font-size: 0.9rem;
+    position: relative;
+    z-index: 2;
+    white-space: nowrap;
 }
 
 .footer {
-    margin-top: 2rem;
-    text-align: center;
+    margin-top: auto;
+    padding: 1rem 1rem 0.5rem;
+    font-size: clamp(0.8rem, 2.5vw, 0.9rem);
     color: rgba(255, 255, 255, 0.5);
-    font-size: 0.8rem;
+    text-align: center;
+    line-height: 1.4;
 }
 
+/* Loading state */
 .loading-spinner {
+    display: inline-block;
     width: 20px;
     height: 20px;
     border: 2px solid rgba(255, 255, 255, 0.3);
-    border-top: 2px solid white;
     border-radius: 50%;
-    animation: spin 1s linear infinite;
+    border-top-color: #DB5461;
+    animation: spin 1s ease-in-out infinite;
+    margin-right: 10px;
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    to { transform: rotate(360deg); }
 }
 
-/* Responsive Design */
+/* Mobile optimizations */
 @media (max-width: 768px) {
     .floating-tab-bar {
-        top: 15px;
-        padding: 4px;
-        gap: 2px;
-        border-radius: 20px;
-    }
-
-    .tab-button {
-        padding: 10px 16px;
-        min-width: 80px;
-        font-size: 0.8rem;
+        top: 25px;
+        padding: 8px;
+        border-radius: 25px;
         gap: 6px;
     }
 
+    .tab-button {
+        padding: 14px 24px;
+        font-size: 0.9rem;
+        min-width: 100px;
+        gap: 8px;
+    }
+
     .tab-icon {
-        width: 14px;
-        height: 14px;
+        width: 18px;
+        height: 18px;
     }
 
     .home-container {
         padding: 0.5rem;
-        height: calc(100vh - 4rem);
+        height: calc(100vh - 5rem - 4rem); /* Adjusted for mobile tab bar position and footer space */
+        min-height: 500px; /* Ensure minimum height for content */
     }
 
     .main-content {
         padding: 0.5rem 0;
+        flex: 1;
+        justify-content: center;
     }
 
     .logo {
         width: 100px;
         height: 100px;
-        border-radius: 25px;
     }
 
     .logo-icon {
@@ -724,91 +557,95 @@ html::-webkit-scrollbar {
     }
 
     .download-btn {
-        padding: 10px 20px;
-        font-size: 0.9rem;
+        padding: 16px 25px;
+        min-width: min(250px, 85vw);
+        gap: 12px;
     }
 
     .platform-icon {
-        width: 18px;
-        height: 18px;
+        width: 24px;
+        height: 24px;
     }
 
     .description {
-        font-size: 0.9rem;
-        max-width: 350px;
+        margin-bottom: 2rem;
     }
 
     .footer {
-        margin-top: 1.5rem;
+        padding: 0.75rem 1rem 1rem;
+        font-size: clamp(0.75rem, 2.2vw, 0.85rem);
     }
 }
 
 @media (max-width: 480px) {
     .floating-tab-bar {
-        top: 10px;
-        padding: 3px;
-        gap: 1px;
-        border-radius: 18px;
-    }
-
-    .tab-button {
-        padding: 8px 12px;
-        min-width: 70px;
-        font-size: 0.75rem;
+        top: 20px;
+        padding: 6px;
         gap: 4px;
     }
 
+    .tab-button {
+        padding: 12px 20px;
+        font-size: 0.85rem;
+        min-width: 90px;
+        gap: 6px;
+    }
+
     .tab-icon {
-        width: 12px;
-        height: 12px;
+        width: 16px;
+        height: 16px;
     }
 
     .home-container {
         padding: 0.25rem;
-        height: calc(100vh - 3rem);
+        height: calc(100vh - 4.5rem - 3.5rem); /* Adjusted for mobile tab bar position and footer space */
+        min-height: 450px; /* Ensure minimum height for content */
     }
 
     .download-btn {
-        padding: 8px 16px;
-        font-size: 0.8rem;
+        min-width: min(220px, 80vw);
+        padding: 14px 20px;
+        gap: 10px;
     }
 
     .footer {
-        margin-top: 1rem;
+        padding: 0.5rem 1rem 1rem;
+        font-size: clamp(0.7rem, 2vw, 0.8rem);
     }
 }
 
+/* Very small screens */
 @media (max-width: 320px) {
     .floating-tab-bar {
-        top: 8px;
-        padding: 2px;
-        gap: 1px;
-        border-radius: 16px;
-    }
-
-    .tab-button {
-        padding: 6px 10px;
-        min-width: 60px;
-        font-size: 0.7rem;
+        top: 15px;
+        padding: 5px;
         gap: 3px;
     }
 
+    .tab-button {
+        padding: 10px 16px;
+        font-size: 0.8rem;
+        min-width: 80px;
+        gap: 5px;
+    }
+
     .tab-icon {
-        width: 11px;
-        height: 11px;
+        width: 14px;
+        height: 14px;
     }
 
     .home-container {
-        padding: 0.2rem;
-        height: calc(100vh - 2.5rem);
+        height: calc(100vh - 4rem - 3rem); /* Adjusted for mobile tab bar position and footer space */
+        min-height: 400px; /* Ensure minimum height for content */
     }
 
     .download-btn {
-        padding: 6px 12px;
-        font-size: 0.75rem;
+        min-width: 90vw;
+        padding: 12px 15px;
     }
 
     .footer {
-        margin-top: 0.8rem;
+        padding: 0.5rem 0.75rem 1rem;
+        font-size: clamp(0.65rem, 1.8vw, 0.75rem);
     }
 }
