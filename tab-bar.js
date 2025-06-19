@@ -63,11 +63,28 @@ class TabBar {
 
     attachEventListeners() {
         document.querySelectorAll('.tab-button').forEach(button => {
-            button.addEventListener('click', () => {
+            button.addEventListener('click', (e) => {
+                this.createRipple(e, button);
                 const page = button.getAttribute('data-page');
                 this.handleNavigation(page);
             });
         });
+    }
+
+    createRipple(event, button) {
+        // Remove any existing ripple
+        const oldRipple = button.querySelector('.ripple');
+        if (oldRipple) oldRipple.remove();
+        // Create ripple
+        const ripple = document.createElement('span');
+        ripple.className = 'ripple';
+        const rect = button.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height);
+        ripple.style.width = ripple.style.height = size + 'px';
+        ripple.style.left = (event.clientX - rect.left - size/2) + 'px';
+        ripple.style.top = (event.clientY - rect.top - size/2) + 'px';
+        button.appendChild(ripple);
+        setTimeout(() => ripple.remove(), 600);
     }
 
     handleNavigation(tabName) {

@@ -164,6 +164,7 @@ body::before {
     box-shadow: 
         0 8px 32px rgba(0, 0, 0, 0.3),
         0 4px 16px rgba(0, 0, 0, 0.2),
+        0 0 16px 4px rgba(219, 84, 97, 0.08), /* soft pink glow */
         inset 0 1px 0 rgba(255, 255, 255, 0.1);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     animation: tabBarFloat 3s ease-in-out infinite;
@@ -192,7 +193,7 @@ body::before {
     gap: 8px;
     min-width: 100px;
     justify-content: center;
-    overflow: hidden;
+    overflow: visible; /* for indicator and ripple */
 }
 
 .tab-button::before {
@@ -237,11 +238,17 @@ body::before {
 .tab-icon {
     width: 16px;
     height: 16px;
-    transition: all 0.3s ease;
+    transition: transform 0.2s cubic-bezier(0.4,0,0.2,1), filter 0.2s, color 0.2s;
 }
 
 .tab-button.active .tab-icon {
     filter: drop-shadow(0 2px 4px rgba(219, 84, 97, 0.3));
+}
+
+.tab-button:hover .tab-icon {
+    transform: scale(1.18);
+    filter: drop-shadow(0 2px 8px rgba(219,84,97,0.25));
+    color: #DB5461;
 }
 
 /* Common animations */
@@ -276,68 +283,27 @@ body::before {
 /* Mobile optimizations */
 @media (max-width: 768px) {
     .floating-tab-bar {
-        top: 25px;
-        padding: 8px;
-        border-radius: 25px;
-        gap: 6px;
+        border-radius: 20px;
+        padding: 6px;
+        gap: 4px;
     }
-
     .tab-button {
-        padding: 14px 24px;
-        font-size: 0.9rem;
-        min-width: 100px;
-        gap: 8px;
-    }
-
-    .tab-icon {
-        width: 18px;
-        height: 18px;
-    }
-
-    /* Adjust container padding for mobile tab bar position */
-    .page-container,
-    .leaderboard-container,
-    .container {
-        padding-top: 5rem;
-    }
-
-    /* Add extra padding to ensure content extends beyond viewport on mobile */
-    .page-container::after,
-    .leaderboard-container::after {
-        height: 50px;
+        border-radius: 16px;
+        padding: 12px 16px;
+        min-width: 80px;
     }
 }
 
 @media (max-width: 480px) {
     .floating-tab-bar {
-        top: 20px;
-        padding: 6px;
-        gap: 4px;
+        border-radius: 16px;
+        padding: 4px;
+        gap: 2px;
     }
-
     .tab-button {
-        padding: 12px 20px;
-        font-size: 0.85rem;
-        min-width: 90px;
-        gap: 6px;
-    }
-
-    .tab-icon {
-        width: 16px;
-        height: 16px;
-    }
-
-    /* Adjust container padding for mobile tab bar position */
-    .page-container,
-    .leaderboard-container,
-    .container {
-        padding-top: 4.5rem;
-    }
-
-    /* Add extra padding to ensure content extends beyond viewport on mobile */
-    .page-container::after,
-    .leaderboard-container::after {
-        height: 50px;
+        border-radius: 12px;
+        padding: 10px 10px;
+        min-width: 60px;
     }
 }
 
@@ -372,5 +338,22 @@ body::before {
     .page-container::after,
     .leaderboard-container::after {
         height: 50px;
+    }
+}
+
+.tab-button .ripple {
+    position: absolute;
+    border-radius: 50%;
+    transform: scale(0);
+    animation: ripple-animate 0.6s linear;
+    background: rgba(219, 84, 97, 0.25);
+    pointer-events: none;
+    z-index: 3;
+}
+
+@keyframes ripple-animate {
+    to {
+        transform: scale(2.5);
+        opacity: 0;
     }
 } 
