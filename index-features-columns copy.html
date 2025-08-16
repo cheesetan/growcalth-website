@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GrowCalth - Turn Steps into Victory</title>
+    <meta name="description" content="Join the ultimate fitness challenge for SST students. Compete with your house, track your steps, and climb the leaderboards.">
+    <link rel="stylesheet" href="styles-features-columns.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="header-left">
+                <div class="logo">
+                    <img src="./images/GrowCalth-iOS-Default-1024x1024@2x.png" alt="GrowCalth Logo" class="logo-image">
+                    <span class="logo-text">GrowCalth</span>
+                </div>
+                <nav class="nav-desktop">
+                    <a href="#features-section" class="nav-link">Features</a>
+                    <a href="#leaderboard-section" class="nav-link">Pricing</a>
+                    <a href="#houses-section" class="nav-link">Houses</a>
+                </nav>
+            </div>
+            <div class="header-right">
+                <a href="https://vercel.com/home" target="_blank" rel="noopener noreferrer" class="btn btn-secondary nav-desktop">
+                    Download App
+                </a>
+                <button class="mobile-menu-btn nav-mobile" onclick="toggleMobileMenu()">
+                    <svg class="menu-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <nav class="mobile-nav">
+                <a href="#features-section" class="mobile-nav-link" onclick="closeMobileMenu()">Features</a>
+                <a href="#leaderboard-section" class="mobile-nav-link" onclick="closeMobileMenu()">Pricing</a>
+                <a href="#houses-section" class="mobile-nav-link" onclick="closeMobileMenu()">Houses</a>
+                <a href="https://vercel.com/home" target="_blank" rel="noopener noreferrer" class="btn btn-secondary mobile-download-btn">
+                    Download App
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-background">
+            <!-- Grid pattern background -->
+            <div class="grid-pattern"></div>
+            <!-- Gradient overlays -->
+            <div class="gradient-overlay-1"></div>
+            <div class="gradient-overlay-2"></div>
+            <div class="gradient-overlay-3"></div>
+        </div>
+        
+        <div class="hero-content">
+            <h1 class="hero-title">Every Step Brings Your School Closer to Championing Health!</h1>
+            <p class="hero-description">
+                Inspire your students to get moving and bond with schoolmates with GrowCalth. Join thousands of users in the ultimate walking challenge today!
+            </p>
+        </div>
+    </section>
+
+    <!-- Dashboard Preview -->
+    <section class="dashboard-preview-section">
+        <div class="dashboard-preview">
+            <div class="dashboard-frame">
+                <img src="./images/dashboard.jpeg" alt="GrowCalth Dashboard Preview" class="dashboard-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features-section" class="features-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Gamify Your Fitness Journey</h2>
+                <p class="section-description">
+                    Let your students join the house system, track your steps, compete with their friends, and achieve your school's fitness goals and foster a stronger school community through friendly competition.
+                </p>
+            </div>
+            <div class="features-grid">
+                <div class="features-column">
+                    <div class="feature-card">
+                        <div class="feature-content">
+                            <h3 class="feature-title">House-based competition</h3>
+                            <p class="feature-description">Let students join and compete for glory</p>
+                        </div>
+                        <div class="feature-visual">
+                            <img src="./images/house.jpeg" alt="House Competition" class="feature-image">
+                        </div>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-content">
+                            <h3 class="feature-title">Progress analytics</h3>
+                            <p class="feature-description">Track your fitness journey with detailed insights</p>
+                        </div>
+                        <div class="feature-visual">
+                            <img src="./images/progress.png" alt="Analytics" class="feature-image">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="features-column">
+                    <div class="feature-card">
+                        <div class="feature-content">
+                            <h3 class="feature-title">Step tracking & rewards</h3>
+                            <p class="feature-description">Turn every step into points and achievements</p>
+                        </div>
+                        <div class="feature-visual">
+                            <img src="./images/steps.png" alt="Step Tracking" class="feature-image">
+                        </div>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-content">
+                            <h3 class="feature-title">Achievement system</h3>
+                            <p class="feature-description">Unlock badges and rewards as you progress</p>
+                        </div>
+                        <div class="feature-visual">
+                            <img src="./images/achievement-badge-3d-icon-png.webp" alt="Achievements" class="feature-image">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="features-column">
+                    <div class="feature-card">
+                        <div class="feature-content">
+                            <h3 class="feature-title">Real-time leaderboards</h3>
+                            <p class="feature-description">See how you and your house rank against others</p>
+                        </div>
+                        <div class="feature-visual">
+                            <img src="./images/leaderboard.jpeg" alt="Leaderboards" class="feature-image">
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-content">
+                            <h3 class="feature-title">Social challenges</h3>
+                            <p class="feature-description">Create and join walking challenges with friends</p>
+                        </div>
+                        <div class="feature-visual">
+                            <img src="./images/social.jpeg" alt="Social Challenges" class="feature-image">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- Pricing Section -->
+    <section id="leaderboard-section" class="pricing-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Interested? Get in contact with us for a quote!</h2>
+                <p class="section-description">
+                    Start your school's fitness journey today with our app. Contact the team to unlock the ultimate experience with amazing features, letting your school achieve the true benefits of health!
+                </p>
+            </div>
+
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 class="plan-name">1 Season of GrowCalth</h3>
+                        <div class="plan-price">
+                            <!-- <span class="price">$2000</span>
+                            <span class="price-period">per season</span> -->
+                        </div>
+                        <p class="plan-description">Everything you need to track your fitness journey</p>
+                    </div>
+                    <a href="https://wa.link/lb3el3" target="_blank" rel="noopener noreferrer" class="btn btn-primary plan-btn">Book today!</a>
+                    <div class="plan-features">
+                        <div class="features-label">Included features:</div>
+                        <ul class="features-list">
+                            <li class="feature-item">
+                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20,6 9,17 4,12"></polyline>
+                                </svg>
+                                Advanced step tracking
+                            </li>
+                            <li class="feature-item">
+                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20,6 9,17 4,12"></polyline>
+                                </svg>
+                                House leaderboards
+                            </li>
+                            <li class="feature-item">
+                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20,6 9,17 4,12"></polyline>
+                                </svg>
+                                Custom challenges
+                            </li>
+                            <li class="feature-item">
+                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20,6 9,17 4,12"></polyline>
+                                </svg>
+                                Achievement badges
+                            </li>
+                            <li class="feature-item">
+                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20,6 9,17 4,12"></polyline>
+                                </svg>
+                                Community access
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Grid -->
+    <section id="houses-section" class="testimonials-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Students Love GrowCalth</h2>
+                <p class="section-description">
+                    See how students in SST are transforming their fitness journey and building stronger house communities.
+                </p>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonials-column">
+                    <div class="testimonial-card large primary">
+                        <div class="testimonial-content">
+                            <blockquote class="testimonial-text">
+                                "GrowCalth has been a game-changer for our house competition. We're tracking steps and motivating each other like never before!"
+                            </blockquote>
+                            <div class="testimonial-author">
+                                <img src="https://placehold.co/48?text=AJ" alt="Alice Johnson" class="author-avatar">
+                                <div class="author-info">
+                                    <div class="author-name">Alice Johnson</div>
+                                    <div class="author-title">SST House A</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card small">
+                        <div class="testimonial-content">
+                            <blockquote class="testimonial-text">
+                                "With GrowCalth, I've never felt more motivated to exercise. The step tracking feature keeps me accountable and engaged."
+                            </blockquote>
+                            <div class="testimonial-author">
+                                <img src="https://placehold.co/48?text=BS" alt="Bob Smith" class="author-avatar">
+                                <div class="author-info">
+                                    <div class="author-name">Bob Smith</div>
+                                    <div class="author-title">SST House B</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonials-column">
+                    <div class="testimonial-card small">
+                        <div class="testimonial-content">
+                            <blockquote class="testimonial-text">
+                                "GrowCalth has helped us build stronger house communities. It's not just about fitness; it's about teamwork and support."
+                            </blockquote>
+                            <div class="testimonial-author">
+                                <img src="https://placehold.co/48?text=CB" alt="Charlie Brown" class="author-avatar">
+                                <div class="author-info">
+                                    <div class="author-name">Charlie Brown</div>
+                                    <div class="author-title">SST House C</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card small">
+                        <div class="testimonial-content">
+                            <blockquote class="testimonial-text">
+                                "I love how GrowCalth integrates with our daily lives. It makes staying fit fun and easy, and I'm seeing real results."
+                            </blockquote>
+                            <div class="testimonial-author">
+                                <img src="https://placehold.co/48?text=DP" alt="Diana Prince" class="author-avatar">
+                                <div class="author-info">
+                                    <div class="author-name">Diana Prince</div>
+                                    <div class="author-title">SST House D</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card small">
+                        <div class="testimonial-content">
+                            <blockquote class="testimonial-text">
+                                "GrowCalth has been instrumental in our fitness journey. It's helped us stay on track and achieve our goals."
+                            </blockquote>
+                            <div class="testimonial-author">
+                                <img src="https://placehold.co/48?text=EH" alt="Ethan Hunt" class="author-avatar">
+                                <div class="author-info">
+                                    <div class="author-name">Ethan Hunt</div>
+                                    <div class="author-title">SST House E</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonials-column">
+                    <div class="testimonial-card small">
+                        <div class="testimonial-content">
+                            <blockquote class="testimonial-text">
+                                "The real-time motivation from GrowCalth keeps us going. It's like having a personal trainer right in our pockets."
+                            </blockquote>
+                            <div class="testimonial-author">
+                                <img src="https://placehold.co/48?text=FA" alt="Fiona Apple" class="author-avatar">
+                                <div class="author-info">
+                                    <div class="author-name">Fiona Apple</div>
+                                    <div class="author-title">SST House F</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card large light">
+                        <div class="testimonial-content">
+                            <blockquote class="testimonial-text">
+                                "Deploying GrowCalth on Vercel was seamless. We went from coding to seeing our changes live in minutes without worrying about build pipelines or configuration issues."
+                            </blockquote>
+                            <div class="testimonial-author">
+                                <img src="https://placehold.co/48?text=GL" alt="George Lucas" class="author-avatar">
+                                <div class="author-info">
+                                    <div class="author-name">George Lucas</div>
+                                    <div class="author-title">SST House G</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq-section" class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p class="section-description">
+                    Everything you need to know about GrowCalth and how it can transform your fitness journey.
+                </p>
+            </div>
+
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>What is GrowCalth?</span>
+                        <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6,9 12,15 18,9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>GrowCalth is a fitness app designed to help users track their daily steps, monitor their progress, and engage with a supportive community.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>How does GrowCalth's step tracking work?</span>
+                        <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6,9 12,15 18,9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Our step tracking feature uses your phone's accelerometer to accurately count your steps throughout the day. It syncs with our servers to provide real-time updates and historical data.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Can I integrate GrowCalth with my smart home system?</span>
+                        <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6,9 12,15 18,9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes! GrowCalth offers integrations with popular smart home systems like Google Home and Amazon Alexa. You can set reminders and track your fitness goals directly from your smart home devices.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>What's included in the free plan?</span>
+                        <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6,9 12,15 18,9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>The free plan includes basic step tracking, access to leaderboards, and the ability to connect with friends. It's perfect for individuals looking to start their fitness journey.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>How do leaderboards work in GrowCalth?</span>
+                        <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6,9 12,15 18,9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Our leaderboards allow you to compete with friends and other users in real-time. You can see who has taken the most steps, climbed the most stairs, and achieved the highest daily activity score.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Is my data secure with GrowCalth?</span>
+                        <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6,9 12,15 18,9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Absolutely. We use enterprise-grade security measures including end-to-end encryption, secure data transmission, and compliance with industry standards. Your fitness data never leaves your secure environment without your explicit permission.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-background">
+            <div class="cta-gradient"></div>
+        </div>
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Start Your Fitness Journey Today</h2>
+                <p class="cta-description">
+                    Join thousands of students who are already turning their steps into victories. Download GrowCalth and start competing!
+                </p>
+                <a href="https://vercel.com/home" target="_blank" rel="noopener noreferrer" class="btn btn-primary cta-btn">
+                    Download today!
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+    <script src="script-fixed-v2.js"></script>
+</body>
+</html>
+
+</html>
+</html>
