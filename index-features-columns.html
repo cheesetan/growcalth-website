@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GrowCalth - Turn Steps into Victory</title>
-    <meta name="description" content="Join the ultimate fitness challenge for SST students. Compete with your house, track your steps, and climb the leaderboards.">
-    <link rel="stylesheet" href="styles-features-columns.css">
+    <title>GrowCalth</title>
 </head>
+<link rel="stylesheet" href="styles-features-columns.css">
 <body>
     <!-- Header -->
     <header class="header">
@@ -18,8 +17,9 @@
                 </div>
                 <nav class="nav-desktop">
                     <a href="#features-section" class="nav-link">Features</a>
-                    <a href="#leaderboard-section" class="nav-link">Pricing</a>
                     <a href="#houses-section" class="nav-link">Testimonials</a>
+                    <a href="#leaderboard-section" class="nav-link">Contact Us</a>
+                    <a href="#faq-section" class="nav-link">FAQs</a>
                 </nav>
             </div>
             <div class="header-right">
@@ -40,8 +40,9 @@
         <div class="mobile-menu" id="mobileMenu">
             <nav class="mobile-nav">
                 <a href="#features-section" class="mobile-nav-link" onclick="closeMobileMenu()">Features</a>
-                <a href="#leaderboard-section" class="mobile-nav-link" onclick="closeMobileMenu()">Pricing</a>
                 <a href="#houses-section" class="mobile-nav-link" onclick="closeMobileMenu()">Testimonials</a>
+                <a href="#leaderboard-section" class="mobile-nav-link" onclick="closeMobileMenu()">Contact Us</a>
+                <a href="#faq-section" class="mobile-nav-link" onclick="closeMobileMenu()">FAQs</a>
                 <a href="https://vercel.com/home" target="_blank" rel="noopener noreferrer" class="btn btn-secondary mobile-download-btn">
                     Download App
                 </a>
@@ -49,7 +50,7 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero Section (Starting) -->
     <section class="hero-section">
         <div class="hero-background">
             <!-- Grid pattern background -->
@@ -61,7 +62,7 @@
         </div>
         
         <div class="hero-content">
-            <h1 class="hero-title">Every Step Brings Your School Closer to Championing Health!</h1>
+            <h1 class="hero-title">Turn Steps into Victory</h1>
             <p class="hero-description">
                 Inspire your students to get moving and bond with schoolmates with GrowCalth. Join thousands of users in the ultimate walking challenge today!
             </p>
@@ -77,7 +78,7 @@
         </div>
     </section>
 
-    <!-- Features Section -->
+    <!-- Features Section (Gamify Your Fitness Journey) -->
     <section id="features-section" class="features-section">
         <div class="container">
             <div class="section-header">
@@ -126,7 +127,29 @@
                             <p class="feature-description">Look at past NAPFA records in your school</p>
                         </div>
                         <div class="feature-visual">
-                            <img src="./images/napfa.png" alt="=NAPFA Leaderboard" class="feature-image">
+                            <div class="napfa-visual">
+                                <div class="napfa-card">
+                                    <h4>NAPFA Records</h4>
+                                    <div class="napfa-categories">
+                                        <div class="napfa-category">
+                                            <span class="category-name">Sit & Reach</span>
+                                            <span class="record-holder">Alex Chen - 45cm</span>
+                                        </div>
+                                        <div class="napfa-category">
+                                            <span class="category-name">Standing Jump</span>
+                                            <span class="record-holder">Sarah Lim - 2.1m</span>
+                                        </div>
+                                        <div class="napfa-category">
+                                            <span class="category-name">Sit-ups (1min)</span>
+                                            <span class="record-holder">Marcus Tan - 52</span>
+                                        </div>
+                                        <div class="napfa-category">
+                                            <span class="category-name">2.4km Run</span>
+                                            <span class="record-holder">Emma Wong - 9:45</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -147,79 +170,41 @@
                             <p class="feature-description">Create and join walking challenges with friends</p>
                         </div>
                         <div class="feature-visual">
-                            <img src="./images/social.jpeg" alt="Social Challenges" class="feature-image">
+                            <div class="social-leadership-visual">
+                                <div class="leadership-card">
+                                    <h4>House Leaderboard</h4>
+                                    <div class="leaderboard-list">
+                                        <div class="leader-item rank-1">
+                                            <span class="rank">#1</span>
+                                            <span class="house-name">Fire Dragons</span>
+                                            <span class="points">2,847 pts</span>
+                                        </div>
+                                        <div class="leader-item rank-2">
+                                            <span class="rank">#2</span>
+                                            <span class="house-name">Water Phoenixes</span>
+                                            <span class="points">2,631 pts</span>
+                                        </div>
+                                        <div class="leader-item rank-3">
+                                            <span class="rank">#3</span>
+                                            <span class="house-name">Earth Titans</span>
+                                            <span class="points">2,419 pts</span>
+                                        </div>
+                                        <div class="leader-item">
+                                            <span class="rank">#4</span>
+                                            <span class="house-name">Air Hawks</span>
+                                            <span class="points">2,203 pts</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-
-    <!-- Pricing Section -->
-    <section id="leaderboard-section" class="pricing-section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Interested? Get in contact with us for a quote!</h2>
-                <p class="section-description">
-                    Start your school's fitness journey today with our app. Contact the team to unlock the ultimate experience with amazing features, letting your school achieve letting your school achieve health goals with GrowCalth!
-                </p>
-            </div>
-
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <div class="pricing-header">
-                        <h3 class="plan-name">1 Season of GrowCalth</h3>
-                        <div class="plan-price">
-                            <!-- <span class="price">$2000</span>
-                            <span class="price-period">per season</span> -->
-                        </div>
-                        <p class="plan-description">Everything your school needs to achieve fitness goals and greater school bonding.</p>
-                    </div>
-                    <a href="https://wa.link/lb3el3" target="_blank" rel="noopener noreferrer" class="btn btn-primary plan-btn">Book today!</a>
-                    <div class="plan-features">
-                        <div class="features-label">Included features:</div>
-                        <ul class="features-list">
-                            <li class="feature-item">
-                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="20,6 9,17 4,12"></polyline>
-                                </svg>
-                                Advanced step tracking
-                            </li>
-                            <li class="feature-item">
-                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="20,6 9,17 4,12"></polyline>
-                                </svg>
-                                House leaderboards
-                            </li>
-                            <li class="feature-item">
-                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="20,6 9,17 4,12"></polyline>
-                                </svg>
-                                Custom challenges
-                            </li>
-                            <li class="feature-item">
-                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="20,6 9,17 4,12"></polyline>
-                                </svg>
-                                NAPFA Leaderboards
-                            </li>
-                            <li class="feature-item">
-                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="20,6 9,17 4,12"></polyline>
-                                </svg>
-                                Community access
-                            </li>
-                        </ul>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials Grid -->
+    <!-- Testimonials Section -->
     <section id="houses-section" class="testimonials-section">
         <div class="container">
             <div class="section-header">
@@ -234,7 +219,7 @@
                     <div class="testimonial-card large primary">
                         <div class="testimonial-content">
                             <blockquote class="testimonial-text">
-                                "GrowCalth has been a game-changer for our house competition. We're tracking steps and motivating each other like never before!"
+                                "GrowCalth transformed how our house approaches fitness challenges. The friendly competition and step tracking brought us closer together while keeping everyone motivated to stay active!"
                             </blockquote>
                             <div class="testimonial-author">
                                 <img src="https://placehold.co/48?text=AJ" alt="Alice Johnson" class="author-avatar">
@@ -340,6 +325,67 @@
         </div>
     </section>
 
+    <!-- Pricing Section (Contact Us for Quote) -->
+    <section id="leaderboard-section" class="pricing-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Interested? Get in contact with us for a quote!</h2>
+                <p class="section-description">
+                    Start your school's fitness journey today with our app. Contact the team to unlock the ultimate experience with amazing features, letting your school achieve letting your school achieve health goals with GrowCalth!
+                </p>
+            </div>
+
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 class="plan-name">1 Season of GrowCalth</h3>
+                        <div class="plan-price">
+                            <!-- <span class="price">$2000</span>
+                            <span class="price-period">per season</span> -->
+                        </div>
+                        <p class="plan-description">Everything your school needs to achieve fitness goals and greater school bonding.</p>
+                    </div>
+                    <a href="mailto:hello@growcalth.com?subject=Interested%20in%20GrowCalth%20for%20our%20school&body=Hi%20there,%0A%0AI'm%20interested%20in%20bringing%20GrowCalth%20to%20our%20school.%20Please%20send%20me%20more%20information%20about%20pricing%20and%20implementation.%0A%0ASchool%20Name:%20%0ANumber%20of%20Students:%20%0AContact%20Person:%20%0APhone:%20%0A%0AThanks!" class="btn btn-primary plan-btn">Book today!</a>
+                    <div class="plan-features">
+                        <div class="features-label">Included features:</div>
+                        <ul class="features-list">
+                            <li class="feature-item">
+                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20,6 9,17 4,12"></polyline>
+                                </svg>
+                                Advanced step tracking
+                            </li>
+                            <li class="feature-item">
+                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20,6 9,17 4,12"></polyline>
+                                </svg>
+                                House leaderboards
+                            </li>
+                            <li class="feature-item">
+                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20,6 9,17 4,12"></polyline>
+                                </svg>
+                                Custom challenges
+                            </li>
+                            <li class="feature-item">
+                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20,6 9,17 4,12"></polyline>
+                                </svg>
+                                NAPFA Leaderboards
+                            </li>
+                            <li class="feature-item">
+                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20,6 9,17 4,12"></polyline>
+                                </svg>
+                                Community access
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- FAQ Section -->
     <section id="faq-section" class="faq-section">
         <div class="container">
@@ -387,18 +433,6 @@
                     </div>
                 </div>
 
-                <!-- <div class="faq-item">
-                    <button class="faq-question" onclick="toggleFAQ(this)">
-                        <span>What's included in the free plan?</span>
-                        <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="6,9 12,15 18,9"></polyline>
-                        </svg>
-                    </button>
-                    <div class="faq-answer">
-                        <p>The free plan includes basic step tracking, access to leaderboards, and the ability to connect with friends. It's perfect for individuals looking to start their fitness journey.</p>
-                    </div>
-                </div> -->
-
                 <div class="faq-item">
                     <button class="faq-question" onclick="toggleFAQ(this)">
                         <span>How do leaderboards work in GrowCalth?</span>
@@ -437,12 +471,14 @@
                 <p class="cta-description">
                     Join thousands of students who are already turning their steps into victories. Download GrowCalth and start competing!
                 </p>
-                <a href="https://vercel.com/home" target="_blank" rel="noopener noreferrer" class="btn btn-primary cta-btn">
-                    Download on iOS!
-                </a>
-                <a href="https://vercel.com/home" target="_blank" rel="noopener noreferrer" class="btn btn-primary cta-btn">
-                    Download on Android!
-                </a>
+                <div class="cta-buttons">
+                    <a href="https://apps.apple.com/app/growcalth" target="_blank" rel="noopener noreferrer" class="btn btn-primary cta-btn">
+                        Download on iOS
+                    </a>
+                    <a href="https://play.google.com/store/apps/details?id=com.growcalth" target="_blank" rel="noopener noreferrer" class="btn btn-primary cta-btn">
+                        Download on Android
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -450,7 +486,4 @@
 
     <script src="script-fixed-v2.js"></script>
 </body>
-</html>
-
-</html>
 </html>
