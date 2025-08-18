@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GrowCalth</title>
 </head>
-<link rel="stylesheet" href="styles-features-columns.css">
+<link rel="stylesheet" href="styles.css">
 <body>
     <!-- Header -->
     <header class="header">
@@ -23,7 +23,7 @@
                 </nav>
             </div>
             <div class="header-right">
-                <a href="https://vercel.com/home" target="_blank" rel="noopener noreferrer" class="btn btn-secondary nav-desktop">
+                <a href="https://go.growcalth.com/download" target="_blank" rel="noopener noreferrer" class="btn btn-secondary nav-desktop">
                     Download App
                 </a>
                 <button class="mobile-menu-btn nav-mobile" onclick="toggleMobileMenu()">
@@ -43,7 +43,7 @@
                 <a href="#houses-section" class="mobile-nav-link" onclick="closeMobileMenu()">Testimonials</a>
                 <a href="#leaderboard-section" class="mobile-nav-link" onclick="closeMobileMenu()">Contact Us</a>
                 <a href="#faq-section" class="mobile-nav-link" onclick="closeMobileMenu()">FAQs</a>
-                <a href="https://vercel.com/home" target="_blank" rel="noopener noreferrer" class="btn btn-secondary mobile-download-btn">
+                <a href="https://go.growcalth.com/download" target="_blank" rel="noopener noreferrer" class="btn btn-secondary mobile-download-btn">
                     Download App
                 </a>
             </nav>
@@ -120,7 +120,18 @@
                             <img src="./images/steps.png" alt="Step Tracking" class="feature-image">
                         </div>
                     </div>
+                    <div class="feature-card">
+                        <div class="feature-content">
+                            <h3 class="feature-title">Real-time leaderboards</h3>
+                            <p class="feature-description">See how you and your house rank against others</p>
+                        </div>
+                        <div class="feature-visual">
+                            <img src="./images/leaderboard.jpeg" alt="Leaderboards" class="feature-image">
+                        </div>
+                    </div>
+                </div>
 
+                <div class="features-column">
                     <div class="feature-card">
                         <div class="feature-content">
                             <h3 class="feature-title">NAPFA Leaderboards</h3>
@@ -140,28 +151,12 @@
                                             <span class="record-holder">Sarah Lim - 2.1m</span>
                                         </div>
                                         <div class="napfa-category">
-                                            <span class="category-name">Sit-ups (1min)</span>
-                                            <span class="record-holder">Marcus Tan - 52</span>
-                                        </div>
-                                        <div class="napfa-category">
                                             <span class="category-name">2.4km Run</span>
                                             <span class="record-holder">Emma Wong - 9:45</span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="features-column">
-                    <div class="feature-card">
-                        <div class="feature-content">
-                            <h3 class="feature-title">Real-time leaderboards</h3>
-                            <p class="feature-description">See how you and your house rank against others</p>
-                        </div>
-                        <div class="feature-visual">
-                            <img src="./images/leaderboard.jpeg" alt="Leaderboards" class="feature-image">
                         </div>
                     </div>
                     <div class="feature-card">
@@ -176,22 +171,22 @@
                                     <div class="leaderboard-list">
                                         <div class="leader-item rank-1">
                                             <span class="rank">#1</span>
-                                            <span class="house-name">Fire Dragons</span>
+                                            <span class="house-name">Red</span>
                                             <span class="points">2,847 pts</span>
                                         </div>
                                         <div class="leader-item rank-2">
                                             <span class="rank">#2</span>
-                                            <span class="house-name">Water Phoenixes</span>
+                                            <span class="house-name">Black</span>
                                             <span class="points">2,631 pts</span>
                                         </div>
                                         <div class="leader-item rank-3">
                                             <span class="rank">#3</span>
-                                            <span class="house-name">Earth Titans</span>
+                                            <span class="house-name">Green</span>
                                             <span class="points">2,419 pts</span>
                                         </div>
                                         <div class="leader-item">
                                             <span class="rank">#4</span>
-                                            <span class="house-name">Air Hawks</span>
+                                            <span class="house-name">Yellow</span>
                                             <span class="points">2,203 pts</span>
                                         </div>
                                     </div>
@@ -218,9 +213,6 @@
                 <div class="testimonials-column">
                     <div class="testimonial-card large primary">
                         <div class="testimonial-content">
-                            <blockquote class="testimonial-text">
-                                "GrowCalth transformed how our house approaches fitness challenges. The friendly competition and step tracking brought us closer together while keeping everyone motivated to stay active!"
-                            </blockquote>
                             <div class="testimonial-author">
                                 <img src="https://placehold.co/48?text=AJ" alt="Alice Johnson" class="author-avatar">
                                 <div class="author-info">
@@ -228,13 +220,13 @@
                                     <div class="author-title">SST House A</div>
                                 </div>
                             </div>
+                            <blockquote class="testimonial-text">
+                                "GrowCalth transformed how our house approaches fitness challenges. The friendly competition and step tracking brought us closer together while keeping everyone motivated to stay active!"
+                            </blockquote>
                         </div>
                     </div>
                     <div class="testimonial-card small">
                         <div class="testimonial-content">
-                            <blockquote class="testimonial-text">
-                                "With GrowCalth, I've never felt more motivated to exercise. The step tracking feature keeps me accountable and engaged."
-                            </blockquote>
                             <div class="testimonial-author">
                                 <img src="https://placehold.co/48?text=BS" alt="Bob Smith" class="author-avatar">
                                 <div class="author-info">
@@ -242,6 +234,9 @@
                                     <div class="author-title">SST House B</div>
                                 </div>
                             </div>
+                            <blockquote class="testimonial-text">
+                                "With GrowCalth, I've never felt more motivated to exercise. The step tracking feature keeps me accountable and engaged."
+                            </blockquote>
                         </div>
                     </div>
                 </div>
@@ -249,9 +244,6 @@
                 <div class="testimonials-column">
                     <div class="testimonial-card small">
                         <div class="testimonial-content">
-                            <blockquote class="testimonial-text">
-                                "GrowCalth has helped us build stronger house communities. It's not just about fitness; it's about teamwork and support."
-                            </blockquote>
                             <div class="testimonial-author">
                                 <img src="https://placehold.co/48?text=CB" alt="Charlie Brown" class="author-avatar">
                                 <div class="author-info">
@@ -259,13 +251,13 @@
                                     <div class="author-title">SST House C</div>
                                 </div>
                             </div>
+                            <blockquote class="testimonial-text">
+                                "GrowCalth has helped us build stronger house communities. It's not just about fitness; it's about teamwork and support."
+                            </blockquote>
                         </div>
                     </div>
                     <div class="testimonial-card small">
                         <div class="testimonial-content">
-                            <blockquote class="testimonial-text">
-                                "I love how GrowCalth integrates with our daily lives. It makes staying fit fun and easy, and I'm seeing real results."
-                            </blockquote>
                             <div class="testimonial-author">
                                 <img src="https://placehold.co/48?text=DP" alt="Diana Prince" class="author-avatar">
                                 <div class="author-info">
@@ -273,13 +265,13 @@
                                     <div class="author-title">SST House D</div>
                                 </div>
                             </div>
+                            <blockquote class="testimonial-text">
+                                "I love how GrowCalth integrates with our daily lives. It makes staying fit fun and easy, and I'm seeing real results."
+                            </blockquote>
                         </div>
                     </div>
                     <div class="testimonial-card small">
                         <div class="testimonial-content">
-                            <blockquote class="testimonial-text">
-                                "GrowCalth has been instrumental in our fitness journey. It's helped us stay on track and achieve our goals."
-                            </blockquote>
                             <div class="testimonial-author">
                                 <img src="https://placehold.co/48?text=EH" alt="Ethan Hunt" class="author-avatar">
                                 <div class="author-info">
@@ -287,6 +279,9 @@
                                     <div class="author-title">SST House E</div>
                                 </div>
                             </div>
+                            <blockquote class="testimonial-text">
+                                "GrowCalth has been instrumental in our fitness journey. It's helped us stay on track and achieve our goals."
+                            </blockquote>
                         </div>
                     </div>
                 </div>
@@ -294,9 +289,6 @@
                 <div class="testimonials-column">
                     <div class="testimonial-card small">
                         <div class="testimonial-content">
-                            <blockquote class="testimonial-text">
-                                "The real-time motivation from GrowCalth keeps us going. It's like having a personal trainer right in our pockets."
-                            </blockquote>
                             <div class="testimonial-author">
                                 <img src="https://placehold.co/48?text=FA" alt="Fiona Apple" class="author-avatar">
                                 <div class="author-info">
@@ -304,13 +296,13 @@
                                     <div class="author-title">SST House F</div>
                                 </div>
                             </div>
+                            <blockquote class="testimonial-text">
+                                "The real-time motivation from GrowCalth keeps us going. It's like having a personal trainer right in our pockets."
+                            </blockquote>
                         </div>
                     </div>
-                    <div class="testimonial-card large light">
+                    <div class="testimonial-card small">
                         <div class="testimonial-content">
-                            <blockquote class="testimonial-text">
-                                "Deploying GrowCalth on Vercel was seamless. We went from coding to seeing our changes live in minutes without worrying about build pipelines or configuration issues."
-                            </blockquote>
                             <div class="testimonial-author">
                                 <img src="https://placehold.co/48?text=GL" alt="George Lucas" class="author-avatar">
                                 <div class="author-info">
@@ -318,6 +310,23 @@
                                     <div class="author-title">SST House G</div>
                                 </div>
                             </div>
+                            <blockquote class="testimonial-text">
+                                "Deploying GrowCalth on Vercel was seamless. We went from coding to seeing our changes live in minutes without worrying about build pipelines or configuration issues."
+                            </blockquote>
+                        </div>
+                    </div>
+                    <div class="testimonial-card small">
+                        <div class="testimonial-content">
+                            <div class="testimonial-author">
+                                <img src="https://placehold.co/48?text=GL" alt="Aathithya Jegatheesan" class="author-avatar">
+                                <div class="author-info">
+                                    <div class="author-name">Aathithya J</div>
+                                    <div class="author-title">SST House H</div>
+                                </div>
+                            </div>
+                            <blockquote class="testimonial-text">
+                                "I love GrowCalth! I love GrowCalth! I love GrowCalth! I love GrowCalth!"
+                            </blockquote>
                         </div>
                     </div>
                 </div>
@@ -334,7 +343,6 @@
                     Start your school's fitness journey today with our app. Contact the team to unlock the ultimate experience with amazing features, letting your school achieve letting your school achieve health goals with GrowCalth!
                 </p>
             </div>
-
             <div class="pricing-grid">
                 <div class="pricing-card">
                     <div class="pricing-header">
@@ -459,30 +467,6 @@
             </div>
         </div>
     </section>
-
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="cta-background">
-            <div class="cta-gradient"></div>
-        </div>
-        <div class="container">
-            <div class="cta-content">
-                <h2 class="cta-title">Start Your Fitness Journey Today</h2>
-                <p class="cta-description">
-                    Join thousands of students who are already turning their steps into victories. Download GrowCalth and start competing!
-                </p>
-                <div class="cta-buttons">
-                    <a href="https://apps.apple.com/app/growcalth" target="_blank" rel="noopener noreferrer" class="btn btn-primary cta-btn">
-                        Download on iOS
-                    </a>
-                    <a href="https://play.google.com/store/apps/details?id=com.growcalth" target="_blank" rel="noopener noreferrer" class="btn btn-primary cta-btn">
-                        Download on Android
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
 
     <script src="script-fixed-v2.js"></script>
 </body>
