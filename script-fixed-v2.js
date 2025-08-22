@@ -178,8 +178,14 @@ const testimonials = [
     house: "Black",
     gradYear: 2028,
     avatar: "https://placehold.co/48?text=L"
+  },
+  {
+    name: "Layla :3",
+    text: "I enjoy using GrowCalth because I am able to track my steps as well as contribute to my house this strengthens my house spirit as I feel more committed to get in more steps. I also enjoy comparing with my friends how many steps we got to in a day and us competing to see who can get the most steps.",
+    house: "Blue",
+    gradYear: 2025,
+    avatar: "https://placehold.co/48?text=L"
   }
-  // Add more testimonials here
 ];
 
 function splitIntoColumns(arr, numCols) {
