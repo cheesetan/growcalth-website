@@ -642,13 +642,13 @@ position: relative;
 z-index: 10;
 display: flex;
 flex-direction: column;
-justify-content: space-between;
 height: 100%;
 }
 
 .testimonial-text {
 font-size: 1rem;
 line-height: 1.5;
+margin-top: 1rem;
 margin-bottom: 1.5rem;
 }
 
@@ -671,21 +671,26 @@ color: rgba(255, 255, 255, 0.8);
 
 .testimonial-author {
   display: flex;
-  flex-direction: column;  /* stack name above house */
+  flex-direction: row;  /* stack name above house */
   align-items: flex-start; /* keep left aligned */
-  gap: 0.25rem;            /* consistent spacing between name and house */
+  gap: 0.5rem;            /* consistent spacing between name and house */
 }
 
 .author-avatar {
-width: 36px;
-height: 36px;
-border-radius: 50%;
-border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  object-fit: cover;      /* ensures image fills the circle */
+  object-position: center;/* centers the image within the circle */
+  background: #eee;       /* fallback background if image fails to load */
 }
 
 .testimonial-card.large .author-avatar {
-width: 48px;
-height: 48px;
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  object-position: center;
 }
 
 .author-name {
