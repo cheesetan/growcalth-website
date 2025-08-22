@@ -143,6 +143,19 @@ align-items: center;
 gap: 1.5rem;
 }
 
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem; /* space between buttons */
+  margin-left: auto; /* push group to right */
+}
+
+.header-right .btn {
+  display: inline-flex; /* ensures buttons stay side by side */
+  white-space: nowrap;  /* prevents text wrapping */
+}
+
+
 .logo {
 display: flex;
 align-items: center;
@@ -238,6 +251,13 @@ transition: all 0.2s ease;
 background: rgba(255, 255, 255, 0.1);
 color: var(--primary);
 }
+
+.nav-dash {
+  text-decoration: none;
+  color:#e5e7eb;
+  padding-right: 2rem;
+}
+
 .nav-mobile {
 display: none;
 }
