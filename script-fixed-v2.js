@@ -179,7 +179,6 @@ const testimonials = [
     gradYear: 2028,
     avatar: "https://placehold.co/48?text=L"
   }
-  // Add more testimonials here
 ];
 
 function splitIntoColumns(arr, numCols) {
