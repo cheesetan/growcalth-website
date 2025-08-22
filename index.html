@@ -4,189 +4,354 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GrowCalth</title>
+    <meta name="theme-color" content="#DB5461">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png">
     <link rel="manifest" href="/site.webmanifest">
-
-    <link rel="stylesheet" href="shared.css">
-    <link rel="stylesheet" href="styles.css">
 </head>
+<link rel="stylesheet" href="styles.css">
 <body>
-    <div class="background-layers">
-        <div class="bg-gradient"></div>
-        <div class="floating-orbs">
-            <div class="orb"></div>
-            <div class="orb"></div>
-            <div class="orb"></div>
-        </div>
-    </div>
-
-    <!-- Tab Bar Container -->
-    <div id="tab-bar-container"></div>
-
-    <!-- Home Page -->
-    <div class="page-container active" id="home-page">
-        <div class="home-container">
-            <div class="main-content">
-                <div class="logo-container">
-                    <div class="logo">
-                        <img src="assets/GrowCalth-iOS-Default-1024x1024@1x.png" alt="GrowCalth App Icon" class="logo-icon">
-                    </div>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="header-left">
+                <div class="logo">
+                    <img src="./images/GrowCalth-iOS-Default-1024x1024@2x.png" alt="GrowCalth Logo" class="logo-image">
+                    <span class="logo-text">GrowCalth</span>
                 </div>
-                
-                <h1 class="title">GrowCalth</h1>
-                <p class="subtitle">Join The House Today.</p>
-                <p class="description">Turn your steps into house points! Join your fellow SST students in the ultimate walking challenge and help your house climb to victory.</p>
-            
-            <div class="download-section">
-                <div class="download-title">Get the app and start walking</div>
-                
-                <div class="download-buttons">
-                    <a href="#" class="download-btn" id="iosBtn">
-                        <div class="loading-spinner" id="iosSpinner" style="display: none;"></div>
-                        <svg class="platform-icon" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
-                        </svg>
-                        <span class="btn-text">Download for iPhone</span>
-                    </a>
-                    
-                    <a href="#" class="download-btn" id="androidBtn">
-                        <div class="loading-spinner" id="androidSpinner" style="display: none;"></div>
-                        <svg class="platform-icon" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M17.523 15.3414c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4486.9993.9993s-.4482-.9997-.9993.9997m-11.046 0c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4486.9993.9993s-.4482-.9997-.9993.9997m11.4045-6.02l1.9973-3.4592a.416.416 0 00-.1518-.5972.416.416 0 00-.5972.1518l-2.0223 3.5024c-.5536-.2483-1.1808-.3893-1.8523-.3893s-1.2987.1409-1.8523.3893L10.4219 5.4418a.4161.4161 0 00-.5972-.1518.4161.4161 0 00-.1518.5972l1.9973 3.4592c-2.403 1.1953-4.0612 3.6861-4.0612 6.5535h14.4c0-2.8674-1.6582-5.3582-4.0612-6.5535z"/>
-                        </svg>
-                        <span class="btn-text">Download for Android</span>
-                    </a>
-                </div>
+                <nav class="nav-desktop">
+                    <a href="#features-section" class="nav-link">Features</a>
+                    <a href="#houses-section" class="nav-link">Testimonials</a>
+                    <a href="#leaderboard-section" class="nav-link">Contact Us</a>
+                    <a href="#faq-section" class="nav-link">FAQs</a>
+                </nav>
+            </div>
+            <div class="header-right">
+                <!-- <a href="https://dashboard.growcalth.com/" target="_blank" rel="noopener noreferrer" class="nav-dash nav-desktop">
+                    View Dashboard
+                </a> -->
+                <a href="https://go.growcalth.com/download" target="_blank" rel="noopener noreferrer" class="btn btn-secondary nav-desktop">
+                    Download App
+                </a>
+                <button class="mobile-menu-btn nav-mobile" onclick="toggleMobileMenu()">
+                    <svg class="menu-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
             </div>
         </div>
         
-        <div class="footer">
-            <p>GrowCalth © 2025 • Made for SST Students, by SST Students</p>
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <nav class="mobile-nav">
+                <a href="#features-section" class="mobile-nav-link" onclick="closeMobileMenu()">Features</a>
+                <a href="#houses-section" class="mobile-nav-link" onclick="closeMobileMenu()">Testimonials</a>
+                <a href="#leaderboard-section" class="mobile-nav-link" onclick="closeMobileMenu()">Contact Us</a>
+                <a href="#faq-section" class="mobile-nav-link" onclick="closeMobileMenu()">FAQs</a>
+                <!-- <a href="https://dashboard.growcalth.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary mobile-download-btn">
+                    View Dashboard
+                </a> -->
+                <a href="https://go.growcalth.com/download" target="_blank" rel="noopener noreferrer" class="btn btn-secondary mobile-download-btn">
+                    Download App
+                </a>
+            </nav>
         </div>
-    </div>
+    </header>
 
-    <script src="tab-bar.js"></script>
-    <script>
-        // Platform detection and redirect logic
-        function detectPlatform() {
-            const userAgent = navigator.userAgent.toLowerCase();
-            const isIOS = /iphone|ipad|ipod/.test(userAgent);
-            const isAndroid = /android/.test(userAgent);
-            const isMobile = isIOS || isAndroid;
-            
-            return { isIOS, isAndroid, isMobile };
-        }
+    <!-- Hero Section (Starting) -->
+    <section class="hero-section">
+        <div class="hero-background">
+            <!-- Grid pattern background -->
+            <div class="grid-pattern"></div>
+            <!-- Gradient overlays -->
+            <div class="gradient-overlay-1"></div>
+            <div class="gradient-overlay-2"></div>
+            <div class="gradient-overlay-3"></div>
+        </div>
+        
+        <div class="hero-content">
+            <h1 class="hero-title">Turn Steps into Victory</h1>
+            <p class="hero-description">
+                Inspire students to get moving and bond with schoolmates with GrowCalth. Join thousands of users in the ultimate walking challenge today!
+            </p>
+        </div>
+    </section>
 
-        function showLoadingState(platform) {
-            const spinner = document.getElementById(platform + 'Spinner');
-            if (spinner) {
-                spinner.style.display = 'inline-block';
-            }
-        }
+    <!-- Dashboard Preview -->
+    <section class="dashboard-preview-section">
+        <div class="dashboard-preview">
+            <div class="dashboard-frame">
+                <img src="./images/dashboard.png" alt="GrowCalth Dashboard Preview" class="dashboard-image">
+            </div>
+        </div>
+    </section>
 
-        function hideLoadingState(platform) {
-            const spinner = document.getElementById(platform + 'Spinner');
-            if (spinner) {
-                spinner.style.display = 'none';
-            }
-        }
+    <!-- Features Section (Gamify Your Fitness Journey) -->
+    <section id="features-section" class="features-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Gamifying Fitness Journey</h2>
+                <p class="section-description">
+                    Let students join the house system, track steps, compete with their friends, and achieve your school's fitness goals and foster a stronger school community through friendly competition.
+                </p>
+            </div>
+            <div class="features-grid">
+                <div class="features-column">
+                    <div class="feature-card">
+                        <div class="feature-content">
+                            <h3 class="feature-title">House-based Competition</h3>
+                            <p class="feature-description">Let students join and compete for glory</p>
+                        </div>
+                        <div class="feature-visual">
+                            <img src="./images/house.jpeg" alt="House Competition" class="feature-image">
+                        </div>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-content">
+                            <h3 class="feature-title">Progress Analytics</h3>
+                            <p class="feature-description">Track your fitness journey with detailed insights</p>
+                        </div>
+                        <div class="feature-visual">
+                            <img src="./images/progress.png" alt="Analytics" class="feature-image">
+                        </div>
+                    </div>
+                </div>
 
-        function updateButtonVisibility(platform) {
-            const iosBtn = document.getElementById('iosBtn');
-            const androidBtn = document.getElementById('androidBtn');
+                <div class="features-column">
+                    <div class="feature-card">
+                        <div class="feature-content">
+                            <h3 class="feature-title">Step Tracking & Rewards</h3>
+                            <p class="feature-description">Turn every step into points and achievements</p>
+                        </div>
+                        <div class="feature-visual">
+                            <img src="./images/steps.png" alt="Step Tracking" class="feature-image">
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-content">
+                            <h3 class="feature-title">Real-time Leaderboards</h3>
+                            <p class="feature-description">See how you and your house rank against others</p>
+                        </div>
+                        <div class="feature-visual">
+                            <img src="./images/leaderboard.jpeg" alt="Leaderboards" class="feature-image">
+                        </div>
+                    </div>
+                </div>
 
-            // Hide loading states
-            hideLoadingState('ios');
-            hideLoadingState('android');
+                <div class="features-column">
+                    <div class="feature-card">
+                        <div class="feature-content">
+                            <h3 class="feature-title">NAPFA Leaderboard</h3>
+                            <p class="feature-description">Look at past NAPFA records in your school</p>
+                        </div>
+                        <div class="feature-visual">
+                            <div class="napfa-visual">
+                                <div class="napfa-card">
+                                    <h4>NAPFA Records</h4>
+                                    <div class="napfa-categories">
+                                        <div class="napfa-category">
+                                            <span class="category-name">Sit & Reach</span>
+                                            <span class="record-holder">Alex Chen - 45cm</span>
+                                        </div>
+                                        <div class="napfa-category">
+                                            <span class="category-name">Standing Jump</span>
+                                            <span class="record-holder">Sarah Lim - 2.1m</span>
+                                        </div>
+                                        <div class="napfa-category">
+                                            <span class="category-name">2.4km Run</span>
+                                            <span class="record-holder">Emma Wong - 9:45</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-content">
+                            <h3 class="feature-title">Weekly Challenges</h3>
+                            <p class="feature-description">Exercise and contribute to your house in a meaningful way</p>
+                        </div>
+                        <div class="feature-visual">
+                            <div class="social-leadership-visual">
+                                <div class="leadership-card">
+                                    <h4>House Leaderboard</h4>
+                                    <div class="leaderboard-list">
+                                        <div class="leader-item rank-1">
+                                            <span class="rank">#1</span>
+                                            <span class="house-name">Red</span>
+                                            <span class="points">2,847 pts</span>
+                                        </div>
+                                        <div class="leader-item rank-2">
+                                            <span class="rank">#2</span>
+                                            <span class="house-name">Black</span>
+                                            <span class="points">2,631 pts</span>
+                                        </div>
+                                        <div class="leader-item rank-3">
+                                            <span class="rank">#3</span>
+                                            <span class="house-name">Green</span>
+                                            <span class="points">2,419 pts</span>
+                                        </div>
+                                        <div class="leader-item">
+                                            <span class="rank">#4</span>
+                                            <span class="house-name">Yellow</span>
+                                            <span class="points">2,203 pts</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            if (platform === 'ios') {
-                androidBtn.classList.add('hidden');
-                iosBtn.classList.remove('hidden');
-            } else if (platform === 'android') {
-                iosBtn.classList.add('hidden');
-                androidBtn.classList.remove('hidden');
-            } else {
-                // Show both for web/desktop or unknown
-                iosBtn.classList.remove('hidden');
-                androidBtn.classList.remove('hidden');
-            }
-        }
+    <!-- Testimonials Section -->
+    <section id="houses-section" class="testimonials-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Students Love GrowCalth</h2>
+                <p class="section-description">
+                    See how students are transforming their fitness journey and building stronger house communities.
+                </p>
+            </div>
 
-        function initializeApp() {
-            const { isIOS, isAndroid, isMobile } = detectPlatform();
-            const iosBtn = document.getElementById('iosBtn');
-            const androidBtn = document.getElementById('androidBtn');
+            <div class="testimonials-grid" id="testimonialsGrid"></div>
+        </div>
+    </section>
 
-            // Set up download links
-            iosBtn.href = 'https://apps.apple.com/sg/app/growcalth/id6456388202';
-            androidBtn.href = 'https://play.google.com/store/apps/details?id=com.growcalth_android&hl=en';
+    <!-- Pricing Section (Contact Us for Quote) -->
+    <section id="leaderboard-section" class="pricing-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Interested? Get in contact with us for a quote!</h2>
+                <p class="section-description">
+                    Start your school's fitness journey today with our app. Contact the team to unlock the ultimate experience with amazing features, letting your school achieve letting your school achieve health goals with GrowCalth!
+                </p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 class="plan-name">1 Season of GrowCalth</h3>
+                        <div class="plan-price">
+                            <!-- <span class="price">$2000</span>
+                            <span class="price-period">per season</span> -->
+                        </div>
+                        <p class="plan-description">Everything your school needs to achieve fitness goals and greater school bonding.</p>
+                    </div>
+                    <div class="plan-features">
+                        <div class="features-label">Included features:</div>
+                        <ul class="features-list">
+                            <li class="feature-item">
+                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20,6 9,17 4,12"></polyline>
+                                </svg>
+                                Advanced step tracking
+                            </li>
+                            <li class="feature-item">
+                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20,6 9,17 4,12"></polyline>
+                                </svg>
+                                House leaderboards
+                            </li>
+                            <li class="feature-item">
+                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20,6 9,17 4,12"></polyline>
+                                </svg>
+                                Custom challenges
+                            </li>
+                            <li class="feature-item">
+                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20,6 9,17 4,12"></polyline>
+                                </svg>
+                                NAPFA Leaderboards
+                            </li>
+                            <li class="feature-item">
+                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20,6 9,17 4,12"></polyline>
+                                </svg>
+                                Activity monitoring dashboard
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="mailto:hello@growcalth.com?subject=Interested%20in%20GrowCalth%20for%20our%20school&body=Hi%20there,%0A%0AI'm%20interested%20in%20bringing%20GrowCalth%20to%20our%20school.%20Please%20send%20me%20more%20information%20about%20pricing%20and%20implementation.%0A%0ASchool%20Name:%20%0ANumber%20of%20Students:%20%0AContact%20Person:%20%0APhone:%20%0A%0AThanks!" class="btn btn-primary plan-btn">Contact us</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            // Show loading state initially for mobile devices
-            if (isMobile) {
-                if (isIOS) {
-                    showLoadingState('ios');
-                } else if (isAndroid) {
-                    showLoadingState('android');
-                }
-            }
+    <!-- FAQ Section -->
+    <section id="faq-section" class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p class="section-description">
+                    Everything you need to know about GrowCalth and how it can transform your fitness journey.
+                </p>
+            </div>
 
-            // Update button visibility after a short delay to allow for smooth loading
-            setTimeout(() => {
-                if (isIOS) {
-                    updateButtonVisibility('ios');
-                } else if (isAndroid) {
-                    updateButtonVisibility('android');
-                } else {
-                    updateButtonVisibility('both');
-                }
-            }, 500);
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>What is GrowCalth?</span>
+                        <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6,9 12,15 18,9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>GrowCalth is a fitness app designed to help users track their daily steps, monitor their progress, and engage with fellow students to become healthier.</p>
+                    </div>
+                </div>
 
-            // Add click tracking
-            [iosBtn, androidBtn].forEach(btn => {
-                btn.addEventListener('click', function(e) {
-                    console.log('Download button clicked:', this.textContent.trim());
-                });
-            });
-        }
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>How does GrowCalth's step tracking work?</span>
+                        <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6,9 12,15 18,9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Our step tracking feature uses your phone's accelerometer to accurately count steps throughout the day. It syncs with our own servers, which helps to provide real-time updates & historical data.</p>
+                    </div>
+                </div>
 
-        // Initialize when page loads
-        document.addEventListener('DOMContentLoaded', function() {
-            initializeApp();
-        });
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>How do leaderboards work in GrowCalth?</span>
+                        <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6,9 12,15 18,9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Our leaderboards allow students in groups to compete with other users in different groups in real-time. You can see which groups have gained the most points.</p>
+                    </div>
+                </div>
 
-        // Add subtle parallax effect on mouse move (desktop only)
-        if (window.innerWidth > 768) {
-            document.addEventListener('mousemove', (e) => {
-                const orbs = document.querySelectorAll('.orb');
-                const x = e.clientX / window.innerWidth;
-                const y = e.clientY / window.innerHeight;
-                
-                orbs.forEach((orb, index) => {
-                    const speed = (index + 1) * 0.5;
-                    const xPos = (x - 0.5) * speed;
-                    const yPos = (y - 0.5) * speed;
-                    orb.style.transform = `translate(${xPos}px, ${yPos}px)`;
-                });
-            });
-        }
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Is my data secure with GrowCalth?</span>
+                        <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6,9 12,15 18,9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Absolutely. We use enterprise-grade security measures including end-to-end encryption, secure data transmission, and compliance with industry standards. Your fitness data never leaves your secure environment without your explicit permission.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        // Handle orientation changes
-        window.addEventListener('orientationchange', function() {
-            setTimeout(() => {
-                // Force a repaint to fix any layout issues
-                document.body.style.display = 'none';
-                document.body.offsetHeight; // trigger reflow
-                document.body.style.display = 'flex';
-            }, 100);
-        });
-    </script>
+    <script src="script-fixed-v2.js"></script>
 </body>
 </html>
