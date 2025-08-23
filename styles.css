@@ -1179,7 +1179,7 @@ body::before {
       position: fixed !important;
       inset: 0 !important;          /* top:0; right:0; bottom:0; left:0 */
       width: 100% !important;       /* avoid 100vw on iOS */
-      height: 100vh !important;      /* avoid 100vh rounding issues */
+      height: 100% !important;      /* avoid 100vh rounding issues */
       transform: none !important;
     }
     /* Ensure nested background pieces also stay within viewport */
