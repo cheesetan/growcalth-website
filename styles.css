@@ -34,7 +34,7 @@ padding: 0;
 
 body {
 font-family: var(--font-sans);
-background-color: var(--muted-foreground);
+background-color: transparent;
 color: var(--foreground);
 line-height: 1.6;
 overflow-x: hidden;
