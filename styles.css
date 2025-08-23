@@ -1165,36 +1165,43 @@ body::before {
   66% { transform: translateY(15px) rotate(240deg); }
 }
 
-/* === Mobile padding tidy (no desktop impact) =============================== */
-@media (max-width: 768px) {
-  :root {
-    /* Reduce section padding on phones */
-    --section-padding: 2.25rem 1rem;
-  }
-
-  html, body {
-    /* respect safe areas on notched devices */
-    padding-left: env(safe-area-inset-left);
-    padding-right: env(safe-area-inset-right);
-  }
-
-  .header-container {
-    padding: 0.75rem 1rem;
-  }
-
-  .hero-section {
-    /* was 8rem 1rem 5rem; make it tighter on mobile */
-    padding: 5.5rem 1rem 3rem;
-  }
-
-  /* Common sections using var(--section-padding) already pick up the smaller value.
-     But clamp any stragglers that hard-coded bigger padding: */
-  .features-section,
-  .pricing-section,
-  .testimonials-section,
-  .faq-section,
-  .footer {
-    padding-left: 1rem;
-    padding-right: 1rem;
+/* === iOS Safari mobile-only side-scroll fix ================================ */
+@supports (-webkit-touch-callout: none) {
+  @media (max-width: 992px) {
+    html, body {
+      overflow-x: clip; /* stronger than hidden on iOS 16+ */
+      width: 100%;
+      max-width: 100%;
+    }
+    /* Lock background layers to the visual viewport without using 100vw */
+    .background-layers,
+    body::before {
+      position: fixed !important;
+      inset: 0 !important;          /* top:0; right:0; bottom:0; left:0 */
+      width: 100% !important;       /* avoid 100vw on iOS */
+      height: 100% !important;      /* avoid 100vh rounding issues */
+      transform: none !important;
+    }
+    /* Ensure nested background pieces also stay within viewport */
+    .hero-background,
+    .grid-pattern,
+    .bg-gradient {
+      position: absolute;
+      inset: 0;
+      max-width: 100%;
+      overflow: hidden;
+    }
+    /* Any generic containers should never exceed viewport width */
+    .container,
+    .header-container,
+    .hero-content,
+    .features-section,
+    .pricing-section,
+    .testimonials-section,
+    .faq-section,
+    .footer {
+      max-width: 100%;
+      overflow-x: clip;
+    }
   }
 }
