@@ -21,6 +21,7 @@
 html {
 scroll-behavior: smooth;
 box-sizing: border-box;
+background: var(--background); /* Add this line */
 }
 
 *,
@@ -1100,7 +1101,7 @@ body::before {
   top: -50px;
   left: -50px;
   width: calc(100vw + 100px);
-  height: calc(100vh + 100px);
+  height: calc(100vh + 100px + env(safe-area-inset-bottom)); /* Add safe area */
   background: #0a0a0a;
   z-index: -2;
   pointer-events: none;
