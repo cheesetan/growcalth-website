@@ -21,7 +21,7 @@
 html {
 scroll-behavior: smooth;
 box-sizing: border-box;
-background: var(--background); /* Add this line */
+background: var(--primary); /* Add this line */
 }
 
 *,
