@@ -1164,3 +1164,66 @@ body::before {
   33% { transform: translateY(-30px) rotate(120deg); }
   66% { transform: translateY(15px) rotate(240deg); }
 }
+
+/* === Mobile-only fixes (no changes to desktop) ============================= */
+@media (max-width: 992px) {
+  /* Prevent horizontal scroll and accidental side panning */
+  html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    touch-action: pan-y;               /* allow only vertical panning */
+    overscroll-behavior-x: none;
+    overscroll-behavior-y: contain;    /* reduce rubber-banding gaps */
+    -webkit-text-size-adjust: 100%;
+    background-color: var(--background);
+    min-height: 100dvh;
+  }
+
+  /* Keep background locked to the screen (no movement / no gaps) */
+  .background-layers {
+    top: 0;
+    left: 0;
+    width: 100dvw;
+    height: 100dvh;
+  }
+  body::before {
+    top: 0;
+    left: 0;
+    width: 100dvw;
+    height: 100dvh;
+  }
+
+  /* Make hero section fill the mobile viewport; keep its background fixed */
+  .hero-section {
+    min-height: 100dvh;
+  }
+  .hero-background {
+    position: fixed;
+    inset: 0;
+  }
+
+  /* Safety clamps to avoid hidden overflow pushing layout sideways */
+  .container,
+  .header-container,
+  .hero-content,
+  .features-section,
+  .pricing-section,
+  .testimonials-section,
+  .faq-section,
+  .footer {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* Ensure desktop-only items can’t appear on mobile and push the header */
+  .nav-desktop { display: none !important; }
+  .mobile-menu-btn { display: inline-flex; }
+  .header-right { gap: 0.5rem; }
+
+  /* Media elements never overflow the viewport width */
+  img, video, svg { max-width: 100%; height: auto; }
+
+  /* Buttons/links: avoid 300ms double-tap zoom behavior on iOS */
+  .btn, button, a { touch-action: manipulation; }
+}

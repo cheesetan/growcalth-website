@@ -180,7 +180,7 @@ const testimonials = [
     avatar: "https://placehold.co/48?text=L"
   },
   {
-    name: "Layla :3",
+    name: "Layla",
     text: "I enjoy using GrowCalth because I am able to track my steps as well as contribute to my house this strengthens my house spirit as I feel more committed to get in more steps. I also enjoy comparing with my friends how many steps we got to in a day and us competing to see who can get the most steps.",
     house: "Blue",
     gradYear: 2025,
@@ -223,3 +223,38 @@ function renderTestimonials() {
 }
 
 document.addEventListener('DOMContentLoaded', renderTestimonials);
+
+
+// ==== Mobile-only viewport + zoom guard =====================================
+(function () {
+  const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent) || window.matchMedia("(max-width: 992px)").matches;
+  if (!isMobile) return;
+
+  // Lock viewport (disable pinch/double-tap zoom on mobile)
+  const vp = document.querySelector('meta[name="viewport"]');
+  if (vp) {
+    // Prevent zooming out / in
+    vp.setAttribute("content", "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no");
+  }
+
+  // Prevent pinch-zoom (Safari/iOS + others)
+  const stop = (e) => { e.preventDefault(); };
+  document.addEventListener("gesturestart", stop, { passive: false });
+  document.addEventListener("gesturechange", stop, { passive: false });
+  document.addEventListener("gestureend", stop, { passive: false });
+
+  // Prevent ctrl+wheel zoom (Android/Chrome and others)
+  document.addEventListener("wheel", (e) => {
+    if (e.ctrlKey) e.preventDefault();
+  }, { passive: false });
+
+  // Prevent double-tap zoom
+  let lastTouchEnd = 0;
+  document.addEventListener("touchend", function (e) {
+    const now = Date.now();
+    if (now - lastTouchEnd <= 300) {
+      e.preventDefault();
+    }
+    lastTouchEnd = now;
+  }, { passive: false });
+})();
