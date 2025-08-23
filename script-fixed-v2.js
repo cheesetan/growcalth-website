@@ -185,6 +185,13 @@ const testimonials = [
     house: "Blue",
     gradYear: 2025,
     avatar: "https://placehold.co/48?text=L"
+  },
+  {
+    name: "Anne",
+    text: "GrowCalth has really motivated me to exercise more by turning our steps into house points; it makes exercising feel more fun and rewarding. This also gives everyone an opportunity to contribute to our respective houses just by walking a bit more than usual, no matter your age or physical abilities.",
+    house: "Yellow",
+    gradYear: 2028,
+    avatar: "https://placehold.co/48?text=A"
   }
 ];
 
