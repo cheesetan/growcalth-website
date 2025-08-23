@@ -1205,3 +1205,24 @@ body::before {
     }
   }
 }
+
+
+/* === Hide 'Download App' on mobile only ==================================== */
+@media (max-width: 992px) {
+  .mobile-download-btn { display: none !important; }
+  /* In case a desktop-styled button slips into mobile header via class mixup */
+  .header .btn.nav-desktop { display: none !important; }
+}
+
+
+/* === Show 'Download App' inside hamburger menu on mobile =================== */
+@media (max-width: 992px) {
+  /* Re-enable the mobile menu button item */
+  .mobile-download-btn {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+}
