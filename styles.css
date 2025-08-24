@@ -18,27 +18,25 @@
 --section-padding: 4rem 1.25rem;
 }
 
-html {
-scroll-behavior: smooth;
-box-sizing: border-box;
-background: var(--primary); /* Add this line */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-*,
-*::before,
-*::after {
-box-sizing: inherit;
-margin: 0;
-padding: 0;
+html {
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+    background: var(--primary);
 }
 
 body {
-font-family: var(--font-sans);
-color: var(--foreground);
-line-height: 1.6;
-overflow-x: hidden;
-width: 100vw;
-min-height: 100vh;
+    font-family: var(--font-sans);
+    color: var(--foreground);
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+    min-height: 100vh;
 }
 
 .container {
