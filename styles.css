@@ -1163,6 +1163,48 @@ body::before {
   66% { transform: translateY(15px) rotate(240deg); }
 }
 
+/* === iOS Safari mobile-only side-scroll fix ================================ */
+@supports (-webkit-touch-callout: none) {
+  @media (max-width: 992px) {
+    html, body {
+      overflow-x: clip; /* stronger than hidden on iOS 16+ */
+      width: 100%;
+      max-width: 100%;
+    }
+    /* Lock background layers to the visual viewport without using 100vw */
+    /* .background-layers,
+    body::before {
+      position: fixed !important;
+      inset: 0 !important;       
+      width: 100% !important;    
+      height: 100% !important;   
+      transform: none !important;
+    } */
+    /* Ensure nested background pieces also stay within viewport */
+    .hero-background,
+    .grid-pattern,
+    .bg-gradient {
+      position: absolute;
+      inset: 0;
+      max-width: 100%;
+      overflow: hidden;
+    }
+    /* Any generic containers should never exceed viewport width */
+    .container,
+    .header-container,
+    .hero-content,
+    .features-section,
+    .pricing-section,
+    .testimonials-section,
+    .faq-section,
+    .footer {
+      max-width: 100%;
+      overflow-x: clip;
+    }
+  }
+}
+
+
 /* === Hide 'Download App' on mobile only ==================================== */
 @media (max-width: 992px) {
   .mobile-download-btn { display: none !important; }
