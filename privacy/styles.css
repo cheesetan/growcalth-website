@@ -28,7 +28,6 @@
 html {
     scroll-behavior: smooth;
     box-sizing: border-box;
-    background: var(--primary);
 }
 
 body {
