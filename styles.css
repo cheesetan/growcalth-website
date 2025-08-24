@@ -27,7 +27,6 @@
 html {
     scroll-behavior: smooth;
     box-sizing: border-box;
-    background: var(--primary);
 }
 
 body {
@@ -1171,15 +1170,6 @@ body::before {
       width: 100%;
       max-width: 100%;
     }
-    /* Lock background layers to the visual viewport without using 100vw */
-    /* .background-layers,
-    body::before {
-      position: fixed !important;
-      inset: 0 !important;       
-      width: 100% !important;    
-      height: 100% !important;   
-      transform: none !important;
-    } */
     /* Ensure nested background pieces also stay within viewport */
     .hero-background,
     .grid-pattern,
